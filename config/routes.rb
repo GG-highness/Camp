@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy"
   
   get "users/:id" => "users#show"
+  get "signup" => "users#new"
+  post "users/create" => "users#create"
 end
