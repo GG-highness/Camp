@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   post "users/:id/update" => "users#update"
   get "login" => "users#login_form"
   post "login" => "users#login"
+  post "logout" => "users#logout"
   
 end
