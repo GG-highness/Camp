@@ -29,6 +29,11 @@
         </li>
       </ul>
     </header>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
     <div class="footer">
       <div class="footer-logo">Camp</div>

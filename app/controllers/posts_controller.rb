@@ -26,7 +26,12 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     @post.save
     
-    redirect_to("/posts/index")
+    if @post.save
+      flash[:notice] = "投稿を編集しました"
+      redirect_to("/posts/index")
+    else
+      render("posts/edit")
+    end
   end
   
   def destroy
