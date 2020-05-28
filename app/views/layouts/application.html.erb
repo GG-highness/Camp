@@ -15,9 +15,9 @@
         <%= link_to("△", "/") %>
       </div>
       <ul class="header-menus">
-        <% if session[:user_id] %>
+        <% if @current_user %>
           <li>
-            <%= session[:user_id] %>
+            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
           </li>
           <li>
             <%= link_to("新規投稿", "/posts/new") %>
