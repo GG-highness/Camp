@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'users/new'
   get "/" => "posts#index"
   
   get "posts/new" => "posts#new"
