@@ -15,6 +15,11 @@
         <%= link_to("△", "/") %>
       </div>
       <ul class="header-menus">
+        <% if session[:user_id] %>
+          <li>
+            <%= session[:user_id] %>
+          </li>
+        <% end %>
         <li>
           <%= link_to("新規投稿", "/posts/new") %>
         </li>
