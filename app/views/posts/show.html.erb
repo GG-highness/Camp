@@ -20,6 +20,7 @@
         <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
           <span class="fa fa-heart like-btn"></span>
       <% end %>
+      <%= @likes_count %>
       
       <% if @post.user_id == @current_user.id %>
         <div class="post-menus">
