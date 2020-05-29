@@ -2,10 +2,14 @@
   <div class="container">
     
     <div class="user">
-      <img src="<%= @user.image_name %>">
+      <% if @user.image_name? %>
+        <img src='<%= @user.image_name %>'>
+      <% else %>
+        <image src="/assets/default_user.jpg"  %>
+      <% end %>
       <h2><%= @user.name %></h2>
-      <p><%= @user.email %></p>
       <% if @user.id == @current_user.id %>
+        <p><%= @user.email %></p>
         <%= link_to("編集", "/users/#{@user.id}/edit") %>
       <% end %>
     </div>
