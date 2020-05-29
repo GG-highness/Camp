@@ -8,4 +8,6 @@ class User < ApplicationRecord
   validates :password, {presence: true}
   
   mount_uploader :image_name, ImageUploader
+  
+  has_many :posts
 end
