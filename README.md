@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
 
-Things you may want to cover:
 
-* Ruby version
+Campはキャンプに関する投稿や施設の評価を閲覧できるサービスです。
 
-* System dependencies
 
-* Configuration
+## 機能
 
-* Database creation
+* ログイン・ログアウト機能
 
-* Database initialization
+* 複数の写真・コメント・投稿機能
 
-* How to run the test suite
+* いいね機能
 
-* Services (job queues, cache servers, search engines, etc.)
+* 投稿編集・削除機能
 
-* Deployment instructions
+* キャンプ場を5段階で評価
 
-* ...
+## 環境
+
+* 言語 : Ruby 2.6.3
+
+* WEBフレームワーク : Ruby on Rails 5.2.4.3
+
+* テスト環境 : Minitest 5.14.1(まだない)
+
+* データベース : PostgreSQL 5.7(バージョンは不明)
+
+* 実行・開発環境 : Docker, Docker Compose(まだ)
+
+* 運用環境 : AWS(EC2, VPC, ELB, Route53, Certificate Manager, IAM)(まだ)
+
+## 実行方法
+(適当)
+起動
+
+`docker-compose up`
+
+停止
+
+`docker-compose down`
+
+ビルド
+
+`docker-compose build`
+
+データベースの作成
+
+`docker-compose run web rails db:create`
+`docker-compose run web rails db:migrate`
