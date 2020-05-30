@@ -2,72 +2,88 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* users/show ================================ */
-.user-show {
-  text-align: center;
-}
+  .user-show {
+    text-align: center;
+  }
 
-.user {
-  margin-bottom: 20px;
-}
+  .user {
+    margin-bottom: 20px;
+  }
 
-.user img {
-  width: 80px;
-  height: 80px;
-  border-radius: 40%;
-  box-shadow: 0 2px 6px #c1ced7;
-  margin: 20px 0 10px;
-  object-fit: cover;
-}
+  .user img {
+    width: 80px;
+    height: 80px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin: 20px 0 10px;
+    object-fit: cover;
+  }
 
-.user h2 {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.2;
-}
+  .user h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
 
-.user p {
-  font-size: 13px;
-  margin-bottom: 15px;
-}
+  .user p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
 
-.user a {
-  color: #8899a6;
-  text-decoration: underline;
-  font-weight: 200;
-}
+  .user a {
+    color: #8899a6;
+    text-decoration: underline;
+    font-weight: 200;
+  }
 
-.user span {
-  color: #afb6bf;
-  font-weight: 200;
-  padding: 0 6px 0 8px;
-}
+  .user span {
+    color: #afb6bf;
+    font-weight: 200;
+    padding: 0 6px 0 8px;
+  }
 
-.user-tabs {
-  margin-top: 40px;
-  background-color: white;
-  overflow: hidden;
-  box-shadow: 0 2px 6px #c1ced7;
-}
+  .user-tabs {
+    margin-top: 40px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+  }
 
-.user-tabs li {
-  float: left;
-}
+  .user-tabs li {
+    float: left;
+  }
 
-.user-tabs li.active {
-  border-bottom: 2px solid #3ecdc6;
-}
+  .user-tabs li.active {
+    border-bottom: 2px solid #3ecdc6;
+  }
 
-.user-tabs li.active a {
-  color: #57575f;
-}
+  .user-tabs li.active a {
+    color: #57575f;
+  }
 
-.user-tabs a {
-  display: inline-block;
-  padding: 16px 30px;
-  color: #afb6bf;
-}
+  .user-tabs a {
+    display: inline-block;
+    padding: 16px 30px;
+    color: #afb6bf;
+  }
 
 /* users/new, users/edit ================================ */
-.users-form input {
-  margin-bottom: 15px;
-}
+  .users-form input {
+    margin-bottom: 15px;
+  }
+
+  textarea{
+    width: 100%;
+    height: 220px;
+    padding: 5px;
+    opacity: 0.8;
+    border-radius: 4px;
+    border: 2px solid rgb(139, 139, 139);
+    appearance: none;
+    box-shadow: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    resize: none;
+    font-size: 15px;
+  }

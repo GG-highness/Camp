@@ -20,6 +20,8 @@
           <p>メールアドレス</p>
           <input name="email" value="<%= @user.email %>">
           
+          <p>プロフィール&nbsp&nbsp;(200文字以内)</p>
+          <textarea name="profile" class="profile"><%= @user.profile %></textarea>
           <input type="submit" value="保存">
         <% end %>
       </div>

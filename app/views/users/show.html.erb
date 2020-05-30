@@ -12,6 +12,13 @@
         <p><%= @user.email %></p>
         <%= link_to("編集", "/users/#{@user.id}/edit") %>
       <% end %>
+      <li>
+        <% if @user.profile == nil %>
+        <p>ーーーーー</p>
+        <% else %>
+        <p class="user-comment"><%= simple_format(@user.profile) %></p>
+        <% end %>
+      </li>
     </div>
     
     <ul class="user-tabs">
