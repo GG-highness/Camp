@@ -28,16 +28,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
-# Use ActiveStorage variant
-gem 'mini_magick', '~> 4.8'
 
 # This gem provides a simple and extremely flexible way to upload files from Ruby applications.
 # https://github.com/carrierwaveuploader/carrierwave
@@ -47,6 +44,10 @@ gem 'carrierwave'
 # Centralization of locale data collection
 # https://github.com/svenfuchs/rails-i18n
 gem 'rails-i18n'
+
+# jQuery for Rails
+# https://github.com/rails/jquery-rails
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
