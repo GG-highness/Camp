@@ -83,22 +83,12 @@
     position: fixed;
     top: 0;
     z-index: 10;
-  }
-  
-  .header-logo {
-    float: left;
-    padding-left: 20px;
-    color: #db8400;
-    font-size: 22px;
-    line-height: 64px;
-    a{
-    color: rgb(250, 76, 76);
-    font-size: 22px;
-    }
+    display: flex;
   }
   
   .header-menus {
     float: right;
+    width: 150px;
     padding-right: 20px;
     li {
     float: left;
@@ -112,29 +102,44 @@
     font-size: 13px;
     color: rgb(218, 221, 43);
     }
-  }
-  
-  .header-menus .fa {
-    padding-right: 5px;
-  }
-  
-  .header-menus input[type="submit"] {
+    input[type="submit"] {
     padding: 0 20px;
     float: left;
     line-height: 64px;
     color: rgb(3, 105, 25);
     margin: 0;
     font-size: 13px;
+    }
   }
   
-  .user-icon img {
-    float: left;
+  .header-menus .fa {
+    padding-right: 5px;
+  }
+  
+  .header-logo {
+    flex:1;
+    text-align: center;
+    padding-left: 20px;
+    color: #db8400;
+    font-size: 22px;
+    line-height: 64px;
+    a{
+    color: rgb(250, 76, 76);
+    font-size: 22px;
+    }
+  }
+  
+  .user-icon{
+    width: 150px;
+    img {
+    float: right;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     box-shadow: 0 2px 6px #c1ced7;
     margin: 0 20px;
     object-fit: cover;
+    }
   }
   
 /* フッター ================================ */

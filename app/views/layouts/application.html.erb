@@ -14,16 +14,6 @@
 
   <body>
     <header>
-      <div class="user-icon">
-        <% if @current_user %>
-          <%= link_to("/users/#{@current_user.id}") do %>
-            <img src='<%= @current_user.image_name %>'>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="header-logo">
-        <%= link_to("△", "/") %>
-      </div>
       <ul class="header-menus">
         <% if @current_user %>
           <li>
@@ -47,6 +37,16 @@
           </li>
         <% end %>
       </ul>
+      <div class="header-logo">
+        <%= link_to("△", "/") %>
+      </div>
+      <div class="user-icon">
+        <% if @current_user %>
+          <%= link_to("/users/#{@current_user.id}") do %>
+            <img src='<%= @current_user.image_name %>'>
+          <% end %>
+        <% end %>
+      </div>
     </header>
     <% if flash[:notice] %>
       <div class="flash">
