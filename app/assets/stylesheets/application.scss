@@ -79,7 +79,7 @@
   header {
     height: 65px;
     width: 100%;
-    background-color: #40552b;
+    background-color: #343a40;
     position: fixed;
     top: 0;
     z-index: 10;
@@ -125,6 +125,16 @@
     color: rgb(3, 105, 25);
     margin: 0;
     font-size: 13px;
+  }
+  
+  .user-icon img {
+    float: left;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin: 0 20px;
+    object-fit: cover;
   }
   
 /* フッター ================================ */
