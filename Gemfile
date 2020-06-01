@@ -48,6 +48,7 @@ gem 'rails-i18n'
 # jQuery for Rails
 # https://github.com/rails/jquery-rails
 gem 'jquery-rails'
+#gem 'jquery-ui-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
