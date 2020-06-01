@@ -55,16 +55,9 @@
     color: #007dbb;
     background-color: #ffffff;
     margin: 0;
-    min-height: 1vh;
-  }
-  
-  .main {
-    position: absolute;
-    top: 64px;
-    width: 100%;
-    height: auto;
-    min-height: 100%;
-    background-color: #f5f8fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   
   .container {
@@ -117,7 +110,7 @@
   }
   
   .header-logo {
-    flex:1;
+    flex: 1;
     text-align: center;
     padding-left: 20px;
     color: #db8400;
@@ -140,6 +133,23 @@
     margin: 0 20px;
     object-fit: cover;
     }
+  }
+  
+/* センター ================================ */
+  center {
+    display: flex;
+    position: absolute;
+    top: 64px;
+    width: 100%;
+  }
+  .center-nav {
+    width: 150px;
+  }
+  .center-main {
+    flex: 1;
+  }
+  .center-aside {
+    width: 150px;
   }
   
 /* フッター ================================ */

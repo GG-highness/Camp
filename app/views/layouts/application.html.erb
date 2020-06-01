@@ -48,20 +48,18 @@
         <% end %>
       </div>
     </header>
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
+    <center>
+      <div class="center-nav">left</div>
+      <div class="center-main">
+        <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <%= yield %>
       </div>
-    <% end %>
-    <%= yield %>
-    <div class="footer" id='footer' >
-      <div class="footer-logo">Camp</div>
-      <div class="footer-list">
-        <ul class="footer-list">
-          <li>利用規約</li>
-          <li>お問い合わせ</li>
-        </ul>
-      </div>
-    </div>
+      <div class="center-aside">right</div>
+    </center>
+    
   </body>
 </html>
