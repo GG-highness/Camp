@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
   
+  resources :microposts,          only: [:create,:edit, :destroy]
 end
