@@ -1,7 +1,7 @@
 <div class="posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_with model:@post, local:true do |f|  %>
+    <%= form_with model: @post, class: "post-form", id: "post-form" do |f| %>
       <div class="form">
         <div class="form-body">
           <% @post.errors.full_messages.each do |message| %>
@@ -9,12 +9,32 @@
               <%= message %>
             </div>
           <% end %>
-          
-          <%= f.fields_for :images do |i| %>
-            <%= i.file_field :image %>
-          <% end %>
-          <%= f.text_field :content %>
-          <%= f.submit "Save",name:"commit" %>
+          <div class="form-image">
+            <div class="form-image__title">
+              <label>写真</label>
+              <span>必須</span>
+            </div>
+            <div class='form-image__text'>最大3枚までアップロードできます</div>
+            <%= f.fields_for :images do |image| %>
+              <div class="clearfix">
+                <ul id="previews">
+                  <li class="input">
+                    <label class='upload-label'>
+                      <div class='upload-label__text'>
+                        ドラッグアンドドロップ<br>
+                        またはクリックしてファイルをアップロード
+                        <div class='input-area'>
+                          <%= image.file_field :name, class: "hidden image_upload" %>
+                        </div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            <% end %>
+            <textarea name="content"><%= @post.content %></textarea>
+            <input type="submit" value="投稿">
+          </div>
         </div>
       </div>
     <% end %>
