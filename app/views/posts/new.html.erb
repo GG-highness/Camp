@@ -1,42 +1,39 @@
 <div class="posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_with model: @post, class: "post-form", id: "post-form" do |f| %>
-      <div class="form">
-        <div class="form-body">
-          <% @post.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
+    <div class="form">
+      <div class="form-body">
+      <%= form_with model: @post, class: "post-form", id: "post-form" do |f| %>
+      
+        <% @post.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+        
+        <div class="upload-box">
+          <div class="upload-box__head">
+            <label>写真</label>
+            <span>必須</span>
+          </div>
+          <div class="form-image__text">最大3枚までアップロードできます</div>
+          <%= f.fields_for :images do |image| %>
+            <div class=".dropzone-container">
+              <div class="dropzone-area" id="preview">
+                <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
+                  <div class="input_area">
+                    <%= image.file_field :image, multiple: true, name: 'post_photos[image][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
+                  </div>
+                  <p>ここをクリックしてください</p>
+                <% end %>
+              </div>
             </div>
           <% end %>
-          <div class="form-image">
-            <div class="form-image__title">
-              <label>写真</label>
-              <span>必須</span>
-            </div>
-            <div class='form-image__text'>最大3枚までアップロードできます</div>
-            <%= f.fields_for :images do |image| %>
-              <div class="clearfix">
-                <ul id="previews">
-                  <li class="input">
-                    <label class='upload-label'>
-                      <div class='upload-label__text'>
-                        ドラッグアンドドロップ<br>
-                        またはクリックしてファイルをアップロード
-                        <div class='input-area'>
-                          <%= image.file_field :name, class: "hidden image_upload" %>
-                        </div>
-                      </div>
-                    </label>
-                  </li>
-                </ul>
-              </div>
-            <% end %>
-            <textarea name="content"><%= @post.content %></textarea>
-            <input type="submit" value="投稿">
-          </div>
         </div>
+        <textarea name="content"><%= @post.content %></textarea>
+        <input type="submit" value="投稿">
+      <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
