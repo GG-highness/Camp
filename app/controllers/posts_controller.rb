@@ -15,22 +15,17 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
-    @photo = @post.photos.build
+    @post.photos.build
   end
   
   def create
     @post = Post.new(post_params)
     
-    respond_to do |format|
-      if @post.save
-        params[:photos][:image].each do |image|
-          @post.photos.create(post_image: image, post_id: @post.id)
-        end
-        flash[:notice] = "投稿を作成しました"
-        redirect_to("/")
-      else
-        render("posts/new")
-      end
+    if @post.save
+      flash[:notice] = "投稿を作成しました"
+      redirect_to("/")
+    else
+      render("posts/new")
     end
   end
   
@@ -57,13 +52,8 @@ class PostsController < ApplicationController
   end
   
   private
-  
     def post_params
-      params.require(:post).permit(:content, photos_attributes: [:post_id, :post_image])
+      params.require(:post).permit(:content)
+      params.require(:post).permit(:content, photos_attributes: [:post_image])
     end
-
-    def update_post_params
-      params.require(:post).permit(:content, posts_attributes: [:post_image, :_destroy, :id])
-    end
-    
 end

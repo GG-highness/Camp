@@ -3,38 +3,22 @@
     <h1 class="form-heading">投稿する</h1>
     <div class="form">
       <div class="form-body">
-      <%= form_with model: @post, class: "post-form", id: "post-form" do |f| %>
-      
-        <% @post.errors.full_messages.each do |message| %>
-          <div class="form-error">
-            <%= message %>
-          </div>
-        <% end %>
-        
-        <div class="upload-box">
-          <div class="upload-box__head">
-            <label>写真</label>
-            <span>必須</span>
-          </div>
-          <div class="form-image__text">最大3枚までアップロードできます</div>
-          <%= f.fields_for :images do |image| %>
-            <div class=".dropzone-container">
-              <div id="preview">
-              <div class="dropzone-area">
-                <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
-                  <div class="input_area">
-                    <%= image.file_field :image, multiple: true, name: ':photos[image][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
-                  </div>
-                  <p>ここをクリックしてください</p>
-                <% end %>
-              </div>
-              </div>
+        <%= form_for @post do |f| %>
+          
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
             </div>
           <% end %>
-        </div>
-        <textarea name="content"><%= @post.content %></textarea>
-        <input type="submit" value="投稿">
-      <% end %>
+          
+          <%= f.fields_for :photos do |image| %>
+            <%= image.file_field :post_image %>
+            <%= image.hidden_field :id, value: image.object.id %>
+          <% end %>
+          
+          <textarea name="content"><%= @post.content %></textarea>
+          <%= f.submit %>
+        <% end %>
       </div>
     </div>
   </div>
