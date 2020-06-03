@@ -10,24 +10,25 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
+    @photos = @post.photos.all
   end
   
   def new
     @post = Post.new
-    @post.photos.build()
+    @photo = @post.photos.build
   end
   
   def create
     @post = Post.new(post_params)
+    
     respond_to do |format|
-      if @post.save!
-        params[:post_photos][:image].each do |image|
-          @post.photos.create(image: image, post_id: @post.id)
+      if @post.save
+        params[:photos][:image].each do |image|
+          @post.photos.create(post_image: image, post_id: @post.id)
         end
         flash[:notice] = "投稿を作成しました"
         redirect_to("/")
       else
-        @post.photos.build
         render("posts/new")
       end
     end
@@ -58,7 +59,7 @@ class PostsController < ApplicationController
   private
   
     def post_params
-      params.require(:post).permit(:content, photos_attributes: [:post_image]).merge(user_id: current_user.id)
+      params.require(:post).permit(:content, photos_attributes: [:post_id, :post_image])
     end
 
     def update_post_params

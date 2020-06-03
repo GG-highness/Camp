@@ -75,14 +75,14 @@ $(document).on('turbolinks:load', function(){
         'width': `calc(100% - (20% * ${images.length - 5}))`
       })
 
-      // 画像が１０枚になったら枠を消す
+      // 画像が5枚になったら枠を消す
       if (images.length == 5) {
         dropzone.css({
           display: "none"
         });
       }
     }
-    var new_image = $(`<input multiple= "multiple" name="post_photos[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
+    var new_image = $(`<input multiple= "multiple" name="photos[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
     input_area.prepend(new_image);
   });
   $(document).on('click', '.delete', function() {
