@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
-    @post.photos.build
+    @post.photos.new
   end
   
   def create
@@ -53,7 +53,6 @@ class PostsController < ApplicationController
   
   private
     def post_params
-      params.require(:post).permit(:content)
       params.require(:post).permit(:content, photos_attributes: [:post_image])
     end
 end
