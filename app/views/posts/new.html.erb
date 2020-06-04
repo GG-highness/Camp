@@ -24,7 +24,7 @@
                 <div class="dropzone-area">
                   <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
                     <div class="input_area">
-                      <%= image.file_field :image, multiple: true, name: 'post_photos[image][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
+                      <%= image.file_field :post_image, multiple: true, name: 'post_photos[image][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
                     </div>
                     <p>ここをクリックしてください</p>
                   <% end %>
