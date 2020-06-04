@@ -20,9 +20,8 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
-    respond_to do |format|
     
-    if @post.save!
+    if @post.save
       params[:post_photos][:image].each do |image|
         @post.photos.create(post_image: image, post_id: @post.id)
       end
@@ -31,7 +30,6 @@ class PostsController < ApplicationController
     else
       @post.photos.build
       render("posts/new")
-    end
     end
   end
   
@@ -58,7 +56,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, photos_attributes: [:post_image]).merge(user_id: current_user.id)
+    params.require(:post).permit(:content, photos_attributes: [:post_image]).merge(user_id: @current_user.id)
   end
   
 end

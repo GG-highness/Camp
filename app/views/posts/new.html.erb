@@ -32,7 +32,7 @@
               </div>
             <% end %>
           </div>
-          <textarea name="content"><%= @post.content %></textarea>
+          <%= f.text_area :content %>
           <%= f.submit %>
         <% end %>
       </div>
