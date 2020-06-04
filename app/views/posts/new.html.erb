@@ -11,32 +11,27 @@
             </div>
           <% end %>
           
-          <div class="image">
-            <div class="image__inner">
-              <div class="teams">
-                <h3 class="team">写真</h3>
-              </div>
-              <div class="image__inner__container">
-                <div class="prev-content"></div>
-                <div class="label-content">
-                  <label class="label-box" for="post_photos_attributes_0_image" id="label-box--0">
-                    <pre class='label-box__text-visible'>クリックしてファイルをアップロード</pre>
-                    <p>最大5枚までアップロードできます</p>
-                  </label>
-                </div>
-                <div class='hidden-content'>
-                  <%= f.fields_for :photos do |i| %>
-                    <%= i.file_field :image, class:"hidden-field" %>
-                    <input class="hidden-field" id="post_photos_attributes_1_image" name="post[photos_attributes][1][post_image]" type="file"></input>
-                    <input class="hidden-field" id="post_photos_attributes_2_image" name="post[photos_attributes][2][post_image]" type="file"></input>
-                    <input class="hidden-field" id="post_photos_attributes_3_image" name="post[photos_attributes][3][post_image]" type="file"></input>
-                    <input class="hidden-field" id="post_photos_attributes_4_image" name="post[photos_attributes][4][post_image]" type="file"></input>
+          <div class="upload-box">
+            <div class="upload-box__head">
+              <h3 class='bigger'>画像</h3>
+              <span>必須</span>
+            </div>
+            <p class='discription'>最大5枚までアップロードできます</p>
+            
+            <%= f.fields_for :photos do |image| %>
+              <div class="dropzone-container">
+                <div id="preview"></div>
+                <div class="dropzone-area">
+                  <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
+                    <div class="input_area">
+                      <%= image.file_field :image, multiple: true, name: 'good_photos[image][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
+                    </div>
+                    <p>ここをクリックしてください</p>
                   <% end %>
                 </div>
               </div>
-            </div>
+            <% end %>
           </div>
-          
           <textarea name="content"><%= @post.content %></textarea>
           <%= f.submit %>
         <% end %>

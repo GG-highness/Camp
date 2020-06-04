@@ -110,12 +110,12 @@
 
       .img_view {
         height: 162px;
-        width: 112px;
-        margin: 0 15px 10px 0;
+        width: 100px;
+        margin: 0 0 10px 0;
 
         img{
-          width: 112px;
-          height: 112px;
+          width: 100px;
+          height: 100px;
         }
       }
 
@@ -148,7 +148,7 @@
     //投稿クリックエリアのCSS
     .dropzone-area {
       margin-bottom: 10px;
-      width: 620px;
+      width: 500px;
 
       .dropzone-box {
         display: block;
