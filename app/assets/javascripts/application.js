@@ -58,7 +58,7 @@ $(function () {
           'width': `calc(100% - (20% * ${images.length}))`
         });
   
-        // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
+        
       } else if (images.length == 5) {
         $("#preview").empty();
         $.each(images, function(index, image) {
