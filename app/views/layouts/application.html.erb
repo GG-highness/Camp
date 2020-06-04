@@ -42,11 +42,16 @@
         <%= link_to("△", "/") %>
       </div>
       <div class="user-icon">
-        <% if @current_user %>
+        <% if @current_user.image_name.file.nil? %>
+          <%= link_to("/users/#{@current_user.id}") do %>
+            <image src="/assets/default_user.jpg"  %>
+          <% end %>
+        <% else %>
           <%= link_to("/users/#{@current_user.id}") do %>
             <img src='<%= @current_user.image_name %>'>
           <% end %>
         <% end %>
+        
       </div>
     </header>
     <center>
