@@ -3,7 +3,9 @@
     <div class="posts-show-item">
       <div class="post-photos">
         <% @photos.each do |photo| %>
+        　<li>
           <img src="<%= photo.post_image %>">
+          </li>
         <% end %>
       </div>
       <div class="post-user-name">
