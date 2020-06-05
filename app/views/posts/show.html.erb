@@ -1,6 +1,11 @@
 <div class="posts-show">
   <div class="container">
     <div class="posts-show-item">
+      <div class="post-photos">
+        <% @photos.each do |photo| %>
+          <img src="<%= photo.post_image %>">
+        <% end %>
+      </div>
       <div class="post-user-name">
         <img src="<%= @post.user.image_name %>">
         <%= link_to(@user.name, "/users/#{@user.id}") %>
