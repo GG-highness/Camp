@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     
     if @post.save
-      params[:post_photos][:image].each do |image|
+      params[:photos][:image].each do |image|
         @post.photos.create(post_image: image, post_id: @post.id)
       end
       flash[:notice] = "投稿を作成しました"
