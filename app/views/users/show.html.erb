@@ -29,7 +29,11 @@
     <% @user.posts.each do |post| %>
       <div class="posts-index-item">
         <div class="post-left">
-          <img src="<%= post.user.image_name %>">
+          <% if post.user.image_name.file.nil? %>
+              <image src="/assets/default_user.jpg"  %>
+          <% else %>
+              <img src='<%= post.user.image_name %>'>
+          <% end %>
         </div>
         <div class="post-right">
           <div class="post-user-name">
