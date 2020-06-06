@@ -2,10 +2,19 @@
   <div class="container">
     <div class="posts-show-item">
       <div class="post-photos">
+        <ul class="slides">
         <% @photos.each do |photo| %>
-        　<li>
-          <img src="<%= photo.post_image %>">
-          </li>
+          <li class="slide"><img src="<%= photo.post_image %>"></li>
+        <% end %>
+        </ul>
+      </div>
+      <div class="index-btn-wrapper">
+        <% i=1  %>
+        <% while i <= @photos_count %>
+          <div class="index-btn">
+            <%= i %>
+            <% i = i + 1 %>
+          </div>
         <% end %>
       </div>
       <div class="post-user-name">
