@@ -15,19 +15,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-$(document).on('turbolinks:load', function() {
-  //フラッシュが消える時間
-  setTimeout("$('.flash').fadeOut('slow')", 900);
   
-  //フッターの位置
-  var $footer = $('#footer');
-  if(window.innerHeight > $footer.offset().top + $footer.outerHeight() ) {
-      $footer.attr({'style': 'position:fixed; top:' + (window.innerHeight - $footer.outerHeight()) + 'px;' });
-  }
   
-  //写真投稿時のプレビュー
   $(document).on('turbolinks:load', function(){
+    //写真投稿時のプレビュー
     var dropzone = $('.dropzone-area');
     var dropzone_box = $('.dropzone-box');
     var images = [];
@@ -121,16 +112,27 @@ $(document).on('turbolinks:load', function() {
         });
       }
     });
-  });
-  
-  //写真のスライド
-  $(".slide").eq(0).addClass("active");
-  
-  $('.index-btn').click(function() {
-    $('.active').removeClass('active');
     
-    var clickedIndex = $('.index-btn').index($(this));
-    $('.slide').eq(clickedIndex).addClass('active');
+    //フラッシュが消える時間
+    setTimeout("$('.flash').fadeOut('slow')", 900);
+  
+    //フッターの位置
+    var $footer = $('#footer');
+    if(window.innerHeight > $footer.offset().top + $footer.outerHeight() ) {
+        $footer.attr({'style': 'position:fixed; top:' + (window.innerHeight - $footer.outerHeight()) + 'px;' });
+    }
+  
+    //写真のスライド
+    $(".slide").eq(0).addClass("active");
+  
+    $('.index-btn').click(function() {
+      $('.active').removeClass('active');
+    
+      var clickedIndex = $('.index-btn').index($(this));
+      $('.slide').eq(clickedIndex).addClass('active');
+    });
+    
   });
   
-});
+  
+  
