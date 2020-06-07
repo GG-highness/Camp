@@ -73,7 +73,7 @@
   }
   
   .post-user-name {
-    float: left;
+    display:flex;
     img {
       width: 60px;
       height: 60px;
@@ -83,12 +83,13 @@
     }
     a {
       font-size: 20px;
+      vertical-align: text-top;
     }
   }
 
   .posts-show-item p {
-    font-size: 24px;
-    margin: 20px 60px;
+    font-size: 22px;
+    margin: 0 60px;
   }
 
   .post-time {
@@ -109,14 +110,11 @@
     margin-right: 3px;
   }
 
-  .post-menus {
-    float: right;
-  }
-
   .post-menus a, .post-menus input {
     color: #8899a6;
     text-decoration: underline;
     font-size: 14px;
+    margin-left: 20px;
   }
 
 /* posts/new ================================ */
