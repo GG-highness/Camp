@@ -16,6 +16,12 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+# jQuery for Rails
+# https://github.com/rails/jquery-rails
+gem 'jquery-rails'
+#gem 'jquery-ui-rails'
+#gem 'jquery-turbolinks'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -45,10 +51,6 @@ gem 'carrierwave'
 # https://github.com/svenfuchs/rails-i18n
 gem 'rails-i18n'
 
-# jQuery for Rails
-# https://github.com/rails/jquery-rails
-gem 'jquery-rails'
-#gem 'jquery-ui-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

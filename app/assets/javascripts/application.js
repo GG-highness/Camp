@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
 //= require_tree .
 
-$(function () {
+$(document).on('turbolinks:load', function() {
   //フラッシュが消える時間
   setTimeout("$('.flash').fadeOut('slow')", 900);
   
