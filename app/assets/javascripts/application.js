@@ -116,12 +116,6 @@
     //フラッシュが消える時間
     setTimeout("$('.flash').fadeOut('slow')", 900);
   
-    //フッターの位置
-    var $footer = $('#footer');
-    if(window.innerHeight > $footer.offset().top + $footer.outerHeight() ) {
-        $footer.attr({'style': 'position:fixed; top:' + (window.innerHeight - $footer.outerHeight()) + 'px;' });
-    }
-  
     //写真のスライド
     $(".slide").eq(0).addClass("active");
   
