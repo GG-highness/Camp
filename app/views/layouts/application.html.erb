@@ -10,6 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="responsive.scss">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
 
   <body>
@@ -42,8 +43,14 @@
       </div>
       <div class="user-icon">
         <% if @current_user %>
-          <%= link_to("/users/#{@current_user.id}") do %>
-            <img src='<%= @current_user.image_name %>'>
+          <% if @current_user.image_name.file.nil? %>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <image src="/assets/default_user.jpg"  %>
+            <% end %>
+          <% else %>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <img src='<%= @current_user.image_name %>'>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -63,5 +70,6 @@
     <footer id='footer' >
       <p><small>&copy; 2020 Camp All rights reserved.</small></p>
     </footer>
+    <script src="application.js"></script>
   </body>
 </html>

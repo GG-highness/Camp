@@ -1,17 +1,29 @@
 <div class="posts-show">
   <div class="container">
     <div class="posts-show-item">
+      <div class="post-photos">
+        <ul class="slides">
+        <% @photos.each do |photo| %>
+          <li class="slide"><img src="<%= photo.post_image %>"></li>
+        <% end %>
+        </ul>
+      </div>
+      <div class="index-btn-wrapper">
+        <% i=1  %>
+        <% while i <= @photos_count %>
+          <div class="index-btn">
+            <%= i %>
+            <% i = i + 1 %>
+          </div>
+        <% end %>
+      </div>
       <div class="post-user-name">
         <img src="<%= @post.user.image_name %>">
         <%= link_to(@user.name, "/users/#{@user.id}") %>
       </div>
-      <p>
-        <%= @post.content %>
-      </p>
-      <div class="post-time">
-        <%= @post.created_at %>
-      </div>
-      
+      <p><%=safe_join(@post.content.split("\n"),tag(:br))%></p>
+      <div class="post-menus">
+      <%= @post.created_at %>
       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
           <span class="fa fa-heart like-btn-unlike"></span>
@@ -19,15 +31,15 @@
       <% else %>
         <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
           <span class="fa fa-heart like-btn"></span>
+        <% end %>
       <% end %>
       <%= @likes_count %>
       
       <% if @post.user_id == @current_user.id %>
-        <div class="post-menus">
-          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
-        </div>
+        <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+        <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

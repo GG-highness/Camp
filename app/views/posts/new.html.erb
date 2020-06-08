@@ -1,9 +1,9 @@
 <div class="posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_tag("/posts/create") do %>
-      <div class="form">
-        <div class="form-body">
+    <div class="form">
+      <div class="form-body">
+        <%= form_for @post do |f| %>
           
           <% @post.errors.full_messages.each do |message| %>
             <div class="form-error">
@@ -11,10 +11,31 @@
             </div>
           <% end %>
           
-          <textarea name="content"><%= @post.content %></textarea>
-          <input type="submit" value="投稿">
-        </div>
+          <div class="upload-box">
+            <div class="upload-box__head">
+              <h3 class='bigger'>画像</h3>
+              <span>必須</span>
+            </div>
+            <p class='discription'>最大5枚までアップロードできます</p>
+            
+            <%= f.fields_for :photos do |image| %>
+              <div class="dropzone-container">
+                <div id="preview"></div>
+                <div class="dropzone-area">
+                  <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
+                    <div class="input_area">
+                      <%= image.file_field :image, multiple: true, name: 'photos[image][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
+                    </div>
+                    <p>ここをクリックしてください</p>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <%= f.text_area :content %>
+          <%= f.submit %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
