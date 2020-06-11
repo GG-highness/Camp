@@ -3,11 +3,7 @@ Rails.application.routes.draw do
   get "/" => "posts#index"
   
   get "posts/new" => "posts#new"
-  post "posts/create" => "posts#create"
   get "posts/:id" => "posts#show"
-  get "posts/:id/edit" => "posts#edit"
-  post "posts/:id/update" => "posts#update"
-  post "posts/:id/destroy" => "posts#destroy"
   
   get  "/signup" => "users#new"
   post "/signup" => "users#create"
@@ -20,5 +16,5 @@ Rails.application.routes.draw do
   post "likes/:post_id/destroy" => "likes#destroy"
   
   resources :users
-  resources :posts,          only: [:create,:edit, :destroy]
+  resources :posts,          only: [:create,:edit, :update, :destroy]
 end
