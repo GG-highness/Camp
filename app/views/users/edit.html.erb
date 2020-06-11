@@ -3,26 +3,22 @@
     <div class="form-heading">アカウント編集</div>
     <div class="form users-form">
       <div class="form-body">
-        
-        <% @user.errors.full_messages.each do |message| %>
-          <div class="form-error">
-            <%= message %>
-          </div>
-        <% end %>
-      
-        <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
-          <p>ユーザー名</p>
-          <input name="name" value="<%= @user.name %>">
+        <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages' %>
+    
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+    
+          <%= f.label :image_name %>
+          <%= f.file_field :image_name %>
           
-          <p>画像</p>
-          <input name="image" type="file">
+          <%= f.label :email %>
+          <%= f.email_field :email %>
           
-          <p>メールアドレス</p>
-          <input name="email" value="<%= @user.email %>">
+          <%= f.label :profile %>
+          <%= f.text_area :profile, class: "profile" %>
           
-          <p>プロフィール&nbsp&nbsp;(200文字以内)</p>
-          <textarea name="profile" class="profile"><%= @user.profile %></textarea>
-          <input type="submit" value="保存">
+          <%= f.submit "保存", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>

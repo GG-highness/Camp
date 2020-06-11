@@ -71,3 +71,11 @@
   .users-form input {
     margin-bottom: 15px;
   }
+  
+  #error_explanation {
+    color: red;
+    ul {
+      color: red;
+      margin: 0 0 30px 0;
+    }
+  }
