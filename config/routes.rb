@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
   
+  get  "/signup" => "users#new"
+  post "/signup" => "users#create"
   get "login" => "users#login_form"
   post "login" => "users#login"
   post "logout" => "users#logout"
