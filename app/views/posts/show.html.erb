@@ -41,5 +41,8 @@
       <% end %>
       </div>
     </div>
+    <div class="comment-create">
+      <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+    </div>
   </div>
 </div>
