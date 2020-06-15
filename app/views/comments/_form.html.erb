@@ -1,8 +1,4 @@
 <div class="comment">
-  <div class="comment_head">
-    <%= @comments_count %>
-    <p>件のコメント</p>
-  </div>
   <% if @current_user.id %>
     <div class="comment-left">
       <% if @current_user.image_name.file.nil? %>

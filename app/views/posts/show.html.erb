@@ -42,7 +42,10 @@
       </div>
     </div>
     <div class="comment-create">
-      <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+      <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
+    </div>
+    <div id="comments_area">
+      <%= render partial: "comments/index", locals: { comments: @comments } %>
     </div>
   </div>
 </div>
