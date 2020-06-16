@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     @photos = Photo.where(post_id: @post.id)
     @photos_count = Photo.where(post_id: @post.id).count
     @comment = Comment.new
-    @comments = @post.comments.order(created_at: :desc)
+    @comments = @post.comments
   end
   
   def new

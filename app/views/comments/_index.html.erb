@@ -29,7 +29,7 @@
   <h6>もっと見る....</h6>
 </div>
 <div class="collapse" id="collapseExample">
-  <% @comments.offset(2).each do |comment| %>
+  <% comments.offset(2).each do |comment| %>
   <div class="comment">
     <div class="comment-left">
       <% if comment.user.image_name.file.nil? %>

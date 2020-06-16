@@ -14,8 +14,8 @@
         </div>
         <div class="aaaaaa">
           <%= form_with(model: [post, comment], url: post_comments_path(@post) ) do |f| %>
-              <%= f.text_area :body, class: "input-mysize" %>
-              <%= f.submit "コメントする", class: "btn btn-outline-dark comment-submit float-right" %>
+            <%= f.text_area :body, class: "input-mysize" %>
+            <%= f.submit "コメントする", class: "btn btn-outline-dark comment-submit float-right" %>
           <% end %>
         </div>
       </div>
