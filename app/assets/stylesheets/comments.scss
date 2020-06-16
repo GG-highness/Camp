@@ -1,16 +1,13 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-  .comment{
+  .comment-from{
     padding: 20px 30px;
     color: #000;
     background-color: #f5f5f5;
     border-bottom: 3px solid #808080;
     overflow: hidden;
     box-shadow: 0 2px 6px #c1ced7;
-    .comment_head{
-      display: flex
-    }
     .comment-left {
       float: left;
       width: 10%;
@@ -43,5 +40,36 @@
           float: right;
         }
       }
+    }
+  }
+  
+  .comment_head{
+    display: flex
+  }
+  .comment{
+    padding: 20px 30px;
+    margin:5px;
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #808080;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+    .comment-left {
+      float: left;
+      width: 10%;
+      img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px #c1ced7;
+        object-fit: cover;
+        margin-top: 27px;
+      }
+    }
+    .comment-right {
+      float: left;
+      width: 90%;
+      padding-left: 25px;
+      text-align: left;
     }
   }

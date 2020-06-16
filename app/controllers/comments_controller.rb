@@ -8,15 +8,15 @@ class CommentsController < ApplicationController
       @comment.user_id = @current_user.id
       @comment.save
       render :index
-    end
+  end
 
-    def destroy
-      @comment = Comment.find(params[:id])
-      @comment.destroy
-      render :index
-    end
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    render :index
+  end
 
-    private
+  private
     def comment_params
       params.require(:comment).permit(:body, :post_id, :user_id)
     end

@@ -24,20 +24,22 @@
       <p><%=safe_join(@post.content.split("\n"),tag(:br))%></p>
       <div class="post-menus">
       <%= @post.created_at %>
-      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
-          <span class="fa fa-heart like-btn-unlike"></span>
+      <% if @current_user %>
+        <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+          <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+            <span class="fa fa-heart like-btn-unlike"></span>
+          <% end %>
+        <% else %>
+          <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+            <span class="fa fa-heart like-btn"></span>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
-          <span class="fa fa-heart like-btn"></span>
+        <%= @likes_count %>
+        
+        <% if @post.user_id == @current_user.id %>
+          <%= link_to("編集", edit_post_path(@post)) %>
+          <%= link_to("削除" , post_path(@post), method: :delete,) %>
         <% end %>
-      <% end %>
-      <%= @likes_count %>
-      
-      <% if @post.user_id == @current_user.id %>
-        <%= link_to("編集", edit_post_path(@post)) %>
-        <%= link_to("削除" , post_path(@post), method: :delete,) %>
       <% end %>
       </div>
     </div>

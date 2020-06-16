@@ -1,4 +1,5 @@
-<div class="comment">
+<div class="comment-from">
+  <% if @current_user %>
   <% if @current_user.id %>
     <div class="comment-left">
       <% if @current_user.image_name.file.nil? %>
@@ -18,5 +19,6 @@
         <% end %>
       </div>
     </div>
+  <% end %>
   <% end %>
 </div>
