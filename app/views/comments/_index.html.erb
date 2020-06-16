@@ -16,16 +16,11 @@
       <%= link_to(comment.user.name, "/users/#{comment.user.id}") %>
     </div>
     <%=safe_join(comment.body.split("\n"),tag(:br))%>
-    <% if comment.user == @current_user %>
-      <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-        <span class="fa fa-trash"></span>
-      <% end %>
-    <% end %>
   </div>
 </div>
 <% end %>
 <div class="comment_head">
-  <%= comments.count %>件コメント
+  <%= comments.count %>件のコメント
   <h6>もっと見る....</h6>
 </div>
 <div class="collapse" id="collapseExample">
@@ -43,11 +38,6 @@
         <%= link_to(comment.user.name, "/users/#{comment.user.id}") %>
       </div>
       <%=safe_join(comment.body.split("\n"),tag(:br))%>
-      <% if comment.user == @current_user %>
-        <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-          <span class="fa fa-trash"></span>
-        <% end %>
-      <% end %>
     </div>
   </div>
   <% end %>        
