@@ -1,24 +1,26 @@
 <div class="comment-from">
   <% if @current_user %>
-  <% if @current_user.id %>
-    <div class="comment-left">
-      <% if @current_user.image_name.file.nil? %>
-        <image src="/assets/default_user.jpg"  %>
-      <% else %>
-        <img src='<%= @current_user.image_name %>'>
-      <% end %>
-    </div>
-    <div class="comment-right">
-      <div class="post-user-name">
-        <%= @current_user.name %>
-      </div>
-      <div class="aaaaaa">
-        <%= form_with(model: [post, comment], url: post_comments_path(@post) ) do |f| %>
-            <%= f.text_area :body, class: "input-mysize" %>
-            <%= f.submit "コメントする", class: "btn btn-outline-dark comment-submit float-right" %>
+    <% if @current_user.id %>
+      <div class="comment-left">
+        <% if @current_user.image_name.file.nil? %>
+          <image src="/assets/default_user.jpg"  %>
+        <% else %>
+          <img src='<%= @current_user.image_name %>'>
         <% end %>
       </div>
-    </div>
-  <% end %>
+      <div class="comment-right">
+        <div class="post-user-name">
+          <%= @current_user.name %>
+        </div>
+        <div class="aaaaaa">
+          <%= form_with(model: [post, comment], url: post_comments_path(@post) ) do |f| %>
+              <%= f.text_area :body, class: "input-mysize" %>
+              <%= f.submit "コメントする", class: "btn btn-outline-dark comment-submit float-right" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    コメントするにはログインが必要です。
   <% end %>
 </div>

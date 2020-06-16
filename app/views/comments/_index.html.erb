@@ -18,7 +18,7 @@
     <%=safe_join(comment.body.split("\n"),tag(:br))%>
     <% if comment.user == @current_user %>
       <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-        <div class="fas fa-trash"></div>
+        <span class="fa fa-trash"></span>
       <% end %>
     <% end %>
   </div>
@@ -45,7 +45,7 @@
       <%=safe_join(comment.body.split("\n"),tag(:br))%>
       <% if comment.user == @current_user %>
         <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-          <div class="fas fa-trash"></div>
+          <span class="fa fa-trash"></span>
         <% end %>
       <% end %>
     </div>
