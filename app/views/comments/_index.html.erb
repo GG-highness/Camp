@@ -23,7 +23,7 @@
   <%= comments.count %>件のコメント
   <h6>もっと見る....</h6>
 </div>
-<div class="collapse" id="collapseExample">
+<div class="hidden-comment">
   <% comments.offset(2).each do |comment| %>
   <div class="comment">
     <div class="comment-left">
