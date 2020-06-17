@@ -18,7 +18,11 @@
         <% end %>
       </div>
       <div class="post-user-name">
-        <img src="<%= @post.user.image_name %>">
+        <% if @post.user.image_name.file.nil? %>
+          <image src="/assets/default_user.jpg"  %>
+        <% else %>
+          <img src='<%= @post.user.image_name %>'>
+        <% end %>
         <%= link_to(@user.name, "/users/#{@user.id}") %>
       </div>
       <p><%=safe_join(@post.content.split("\n"),tag(:br))%></p>
