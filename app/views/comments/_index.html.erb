@@ -1,0 +1,47 @@
+<% comments.first(2).each do |comment| %>
+<div class="comment">
+  <div class="comment-left">
+    <% if comment.user.image_name.file.nil? %>
+      <%= link_to("/users/#{comment.user.id}") do %>
+        <image src="/assets/default_user.jpg"  %>
+      <% end %>
+    <% else %>
+      <%= link_to("/users/#{comment.user.id}") do %>
+        <img src='<%= comment.user.image_name %>'>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="comment-right">
+    <div class="comment-user-name">
+      <%= link_to(comment.user.name, "/users/#{comment.user.id}") %>
+    </div>
+    <%=safe_join(comment.body.split("\n"),tag(:br))%>
+  </div>
+</div>
+<% end %>
+
+<div class="hidden-comment">
+  <% comments.offset(2).each do |comment| %>
+  <div class="comment">
+    <div class="comment-left">
+      <% if comment.user.image_name.file.nil? %>
+          <image src="/assets/default_user.jpg"  %>
+      <% else %>
+          <img src='<%= comment.user.image_name %>'>
+      <% end %>
+    </div>
+    <div class="comment-right">
+      <div class="comment-user-name">
+        <%= link_to(comment.user.name, "/users/#{comment.user.id}") %>
+      </div>
+      <%=safe_join(comment.body.split("\n"),tag(:br))%>
+    </div>
+  </div>
+  <% end %>        
+</div>
+<div class="comment_head">
+  <%= comments.count %>件のコメント
+  <div class="comment-other">
+    <h4>もっと見る....<i class="fa fa-angle-double-down" aria-hidden="true"></i></h4>
+  </div>
+</div>

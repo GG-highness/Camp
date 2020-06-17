@@ -18,28 +18,40 @@
         <% end %>
       </div>
       <div class="post-user-name">
-        <img src="<%= @post.user.image_name %>">
+        <% if @post.user.image_name.file.nil? %>
+          <image src="/assets/default_user.jpg"  %>
+        <% else %>
+          <img src='<%= @post.user.image_name %>'>
+        <% end %>
         <%= link_to(@user.name, "/users/#{@user.id}") %>
       </div>
       <p><%=safe_join(@post.content.split("\n"),tag(:br))%></p>
       <div class="post-menus">
       <%= @post.created_at %>
-      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
-          <span class="fa fa-heart like-btn-unlike"></span>
+      <% if @current_user %>
+        <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+          <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+            <span class="fa fa-heart like-btn-unlike"></span>
+          <% end %>
+        <% else %>
+          <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+            <span class="fa fa-heart like-btn"></span>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
-          <span class="fa fa-heart like-btn"></span>
+        <%= @likes_count %>
+        
+        <% if @post.user_id == @current_user.id %>
+          <%= link_to("編集", edit_post_path(@post)) %>
+          <%= link_to("削除" , post_path(@post), method: :delete,) %>
         <% end %>
-      <% end %>
-      <%= @likes_count %>
-      
-      <% if @post.user_id == @current_user.id %>
-        <%= link_to("編集", edit_post_path(@post)) %>
-        <%= link_to("削除" , post_path(@post), method: :delete,) %>
       <% end %>
       </div>
+    </div>
+    <div class="comment-create">
+      <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
+    </div>
+    <div id="comments_area">
+      <%= render partial: "comments/index", locals: { comments: @comments } %>
     </div>
   </div>
 </div>
