@@ -126,6 +126,19 @@
       $('.slide').eq(clickedIndex).addClass('active');
     });
     
+      //
+    $('.comment-other').click(function() {
+      if ($(".hidden-comment").hasClass('open')) {
+        $(".hidden-comment").removeClass('open');
+        $(".hidden-comment").slideUp();
+        $("h4").html('もっと見る....</h4><i class="fa fa-angle-double-down" aria-hidden="true">');
+      } else {
+        $(".hidden-comment").addClass('open'); 
+        $(".hidden-comment").slideDown();
+        $("h4").html('閉じる</h4><i class="fa fa-angle-double-up" aria-hidden="true">');
+      }
+    });
+    
   });
   
   

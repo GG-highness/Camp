@@ -19,10 +19,7 @@
   </div>
 </div>
 <% end %>
-<div class="comment_head">
-  <%= comments.count %>件のコメント
-  <h6>もっと見る....</h6>
-</div>
+
 <div class="hidden-comment">
   <% comments.offset(2).each do |comment| %>
   <div class="comment">
@@ -41,4 +38,10 @@
     </div>
   </div>
   <% end %>        
+</div>
+<div class="comment_head">
+  <%= comments.count %>件のコメント
+  <div class="comment-other">
+    <h4>もっと見る....<i class="fa fa-angle-double-down" aria-hidden="true"></i></h4>
+  </div>
 </div>
