@@ -1,5 +1,5 @@
 <div class="posts-index">
-  <div class="container">
+  <div class="container jscroll">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
         <div class="post-left">
@@ -23,6 +23,7 @@
         </div>
       </div>
     <% end %>
+    <%= paginate @posts %>
   </div>
 </div>
         
