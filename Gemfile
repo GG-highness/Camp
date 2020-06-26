@@ -46,7 +46,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # https://github.com/carrierwaveuploader/carrierwave
 gem 'carrierwave'
 
-
+gem 'kaminari'
 # Centralization of locale data collection
 # https://github.com/svenfuchs/rails-i18n
 gem 'rails-i18n'
