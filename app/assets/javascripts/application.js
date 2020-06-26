@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require jquery.jscroll.min.js
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery.jscroll.min.js
   
   
   $(document).on('turbolinks:load', function(){
@@ -127,7 +127,7 @@
       $('.slide').eq(clickedIndex).addClass('active');
     });
     
-      //
+      //コメントの表示切替
     $('.comment-other').click(function() {
       if ($(".hidden-comment").hasClass('open')) {
         $(".hidden-comment").removeClass('open');
@@ -138,6 +138,13 @@
         $(".hidden-comment").slideDown();
         $("h4").html('閉じる</h4><i class="fa fa-angle-double-up" aria-hidden="true">');
       }
+    });
+    
+    //無限スクロール
+    $('.jscroll').jscroll({
+      contentSelector: '.jscroll', 
+      nextSelector: 'span.next a',
+      loadingHtml: '読み込み中'
     });
     
   });
