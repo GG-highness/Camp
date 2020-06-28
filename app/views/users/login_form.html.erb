@@ -11,11 +11,12 @@
         <%= form_tag("/login") do %>
           <p>メールアドレス</p>
           <input name="email">
-          
           <p>パスワード</p>
           <input type="password" name="password">
-          
           <input type="submit" value="ログイン">
+        <% end %>
+        <%= link_to("/simple_login") do %>
+          <input type="submit" value="簡単ログイン">
         <% end %>
       </div>
     </div>

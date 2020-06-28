@@ -59,6 +59,14 @@ class UsersController < ApplicationController
     end
   end
   
+  def simple_login
+    @user = User.find_by(id: 1)
+
+    flash[:notice] = "ログインしました"
+    session[:user_id] = @user.id
+    redirect_to("/")
+  end
+  
   def logout
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
