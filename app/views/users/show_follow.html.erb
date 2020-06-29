@@ -1,0 +1,52 @@
+<div class="user-show">
+  <div class="container">
+    
+    <div class="user">
+      <% if @user.image_name? %>
+        <img src='<%= @user.image_name %>'>
+      <% else %>
+        <image src="/assets/default_user.jpg"  %>
+      <% end %>
+      <h2><%= @user.name %></h2>
+      <% if @current_user %>
+        <% if @user.id == @current_user.id %>
+          <p><%= @user.email %></p>
+          <%= link_to("編集", edit_user_path(@user)) %>
+        <% end %>
+      <% end %>
+      <li>
+        <% if @user.profile == nil %>
+        <p>ーーーーー</p>
+        <% else %>
+        <p class="user-comment"><%= simple_format(@user.profile) %></p>
+        <% end %>
+      </li>
+    </div>
+    
+    <ul class="user-tabs">
+      <li><%= link_to("投稿", user_path(@user)) %></li>
+      <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+      <li><%= link_to("フォロワー", following_user_path(@user)) %></li>
+      <li><%= link_to("フォロー中", followers_user_path(@user)) %></li>
+    </ul>
+    
+  </div>
+</div>
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1><%= @user.name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+    </section>
+    
+  </aside>
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+    <% end %>
+  </div>
+</div>
