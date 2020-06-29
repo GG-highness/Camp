@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   resources :posts,          only: [:create,:edit, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
   end
+  resources :relationships,       only: [:create, :destroy]
 end
