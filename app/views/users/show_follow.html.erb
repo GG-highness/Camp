@@ -21,6 +21,9 @@
         <p class="user-comment"><%= simple_format(@user.profile) %></p>
         <% end %>
       </li>
+      <% if @current_user %>
+        <%= render 'follow_form'%>
+      <% end %>
     </div>
     
     <ul class="user-tabs">
@@ -29,24 +32,30 @@
       <li><%= link_to("フォロワー", following_user_path(@user)) %></li>
       <li><%= link_to("フォロー中", followers_user_path(@user)) %></li>
     </ul>
+
+    <% @users.each do |users| %>
+      
+      <div class="posts-index-item">
+        <div class="post-left">
+          <% if users.image_name.file.nil? %>
+            <%= link_to("/users/#{@users.user.id}") do %>
+              <image src="/assets/default_user.jpg"  %>
+            <% end %>
+          <% else %>
+            <%= link_to("/users/#{@users.user.id}") do %>
+              <img src='<%= usres.image_name %>'>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(users.name, "/users/#{@users.user.id}") %>
+          </div>
+          <%= link_to(users.content, "/posts/#{@users.id}") %>
+        </div>
+      </div>
+    <% end %>
     
   </div>
 </div>
 
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-    </section>
-    
-  </aside>
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-        <%= render @users %>
-      </ul>
-    <% end %>
-  </div>
-</div>

@@ -21,6 +21,9 @@
         <p class="user-comment"><%= simple_format(@user.profile) %></p>
         <% end %>
       </li>
+      <% if @current_user %>
+        <%= render 'follow_form'%>
+      <% end %>
     </div>
     
     <ul class="user-tabs">
