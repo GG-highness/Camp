@@ -29,29 +29,28 @@
     <ul class="user-tabs">
       <li><%= link_to("投稿", user_path(@user)) %></li>
       <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
-      <li><%= link_to("フォロワー", following_user_path(@user)) %></li>
-      <li><%= link_to("フォロー中", followers_user_path(@user)) %></li>
+      <li><%= link_to("フォロー中", following_user_path(@user)) %></li>
+      <li><%= link_to("フォロワー", followers_user_path(@user)) %></li>
     </ul>
 
-    <% @users.each do |users| %>
+    <% @users.each do |user| %>
       
       <div class="posts-index-item">
         <div class="post-left">
-          <% if users.image_name.file.nil? %>
-            <%= link_to("/users/#{@users.user.id}") do %>
+          <% if user.image_name.file.nil? %>
+            <%= link_to("/users/#{user.id}") do %>
               <image src="/assets/default_user.jpg"  %>
             <% end %>
           <% else %>
-            <%= link_to("/users/#{@users.user.id}") do %>
-              <img src='<%= usres.image_name %>'>
+            <%= link_to("/users/#{user.id}") do %>
+              <img src='<%= user.image_name %>'>
             <% end %>
           <% end %>
         </div>
         <div class="post-right">
           <div class="post-user-name">
-            <%= link_to(users.name, "/users/#{@users.user.id}") %>
+            <%= link_to(user.name, "/users/#{user.id}") %>
           </div>
-          <%= link_to(users.content, "/posts/#{@users.id}") %>
         </div>
       </div>
     <% end %>
