@@ -1,5 +1,5 @@
 <div id="follow_form">
-  <% if @current_user.following?(@user) %>
+  <% if Relationship.find_by(follower_id: @current_user.id, followed_id: @user.id) %>
     <%= render 'unfollow' %>
   <% else %>
     <%= render 'follow' %>
