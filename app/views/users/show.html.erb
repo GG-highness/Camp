@@ -34,7 +34,7 @@
           <%= @user.posts.count %>件
         </strong>
       </li>
-      <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %>
+      <li>いいね!
         <strong class="stat">
           <%= @likes.count %>件
         </strong>
@@ -52,5 +52,6 @@
     </ul>
     
     <%= render 'show_posts'%>
+    <%= render 'show_likes'%>
   </div>
 </div>
