@@ -17,11 +17,7 @@ Rails.application.routes.draw do
   
   get "comments/new" => "comments#new"
   
-  resources :users do
-    member do
-      get :following, :followers
-    end
-  end
+  resources :users
   resources :posts,          only: [:create,:edit, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
   end
