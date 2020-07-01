@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   get "simple_login" => 'users#simple_login'
   post "logout" => "users#logout"
-  get "users/:id/likes" => "users#likes"
   
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
