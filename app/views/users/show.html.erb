@@ -29,25 +29,37 @@
     </div>
     
     <ul class="user-tabs">
-      <li>投稿
-        <strong class="stat">
-          <%= @user.posts.count %>件
-        </strong>
+      <li class="active">
+        <a>
+          投稿
+          <strong class="stat">
+            <%= @user.posts.count %>件
+          </strong>
+        </a>
       </li>
-      <li>いいね!
-        <strong class="stat">
-          <%= @likes.count %>件
-        </strong>
+      <li>
+        <a>
+          いいね!
+          <strong class="stat">
+            <%= @likes.count %>件
+          </strong>
+        </a>
       </li>
-      <li>フォロー中"
-        <strong class="stat">
-          <%= @user.following.count %>人
-        </strong>
+      <li>
+        <a>
+          フォロー中"
+          <strong class="stat">
+            <%= @user.following.count %>人
+          </strong>
+        </a>
       </li>
-      <li>フォロワー
-        <strong class="stat">
-          <%= @user.followers.count %>人
-        </strong>
+      <li>
+        <a>
+          フォロワー
+          <strong class="stat">
+            <%= @user.followers.count %>人
+          </strong>
+        </a>
       </li>
     </ul>
     
