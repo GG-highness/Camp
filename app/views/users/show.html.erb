@@ -29,7 +29,7 @@
     </div>
     
     <ul class="user-tabs">
-      <li><%= link_to("投稿", user_path(@user)) %>
+      <li>投稿
         <strong class="stat">
           <%= @user.posts.count %>件
         </strong>
@@ -39,12 +39,12 @@
           <%= @likes.count %>件
         </strong>
       </li>
-      <li><%= link_to("フォロー中", following_user_path(@user)) %>
+      <li>フォロー中"
         <strong class="stat">
           <%= @user.following.count %>人
         </strong>
       </li>
-      <li><%= link_to("フォロワー", followers_user_path(@user)) %>
+      <li>フォロワー
         <strong class="stat">
           <%= @user.followers.count %>人
         </strong>
