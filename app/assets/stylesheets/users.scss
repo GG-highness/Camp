@@ -48,19 +48,21 @@
     overflow: hidden;
     box-shadow: 0 2px 6px #c1ced7;
     li {
+      display: flex;
       float: left;
       width: 25%;
-    }
-    .active {
-      border-bottom: 2px solid #3ecdc6;
+      background-color: #c0c0c0;
       a {
-        color: #57575f;
+        flex: auto;
+        padding: 15px 30px;
+        color: #343a40;
       }
     }
-    a {
-      display: inline-block;
-      padding: 16px 30px;
-      color: #afb6bf;
+    .active {
+      border-bottom: 2px solid #ffd700;
+      a {
+        color: #343a40;
+      }
     }
   }
   
