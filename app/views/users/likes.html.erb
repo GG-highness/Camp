@@ -1,37 +1,7 @@
 <div class="user-show">
   <div class="container">
     
-    <div class="user">
-      <% if @user.image_name? %>
-        <img src='<%= @user.image_name %>'>
-      <% else %>
-        <image src="/assets/default_user.jpg"  %>
-      <% end %>
-      <h2><%= @user.name %></h2>
-      <% if @current_user %>
-        <% if @user.id == @current_user.id %>
-          <p><%= @user.email %></p>
-          <%= link_to("編集", edit_user_path(@user)) %>
-        <% end %>
-      <% end %>
-      <li>
-        <% if @user.profile == nil %>
-        <p>ーーーーー</p>
-        <% else %>
-        <p class="user-comment"><%= simple_format(@user.profile) %></p>
-        <% end %>
-      </li>
-      <% if @current_user %>
-        <%= render 'follow_form'%>
-      <% end %>
-    </div>
-    
-    <ul class="user-tabs">
-      <li><%= link_to("投稿", user_path(@user)) %></li>
-      <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
-      <li><%= link_to("フォロー中", following_user_path(@user)) %></li>
-      <li><%= link_to("フォロワー", followers_user_path(@user)) %></li>
-    </ul>
+    <%= render 'user' %>
     
     <% @likes.each do |like| %>
       <% post = Post.find_by(id: like.post_id) %>

@@ -2,29 +2,6 @@
   <div class="container">
     
     <%= render 'user' %>
-    
-    <ul class="user-tabs">
-      <li><%= link_to("投稿", user_path(@user)) %>
-        <strong class="stat">
-          <%= @user.posts.count %>件
-        </strong>
-      </li>
-      <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %>
-        <strong class="stat">
-          <%= @likes.count %>件
-        </strong>
-      </li>
-      <li><%= link_to("フォロー中", following_user_path(@user)) %>
-        <strong class="stat">
-          <%= @user.following.count %>人
-        </strong>
-      </li>
-      <li><%= link_to("フォロワー", followers_user_path(@user)) %>
-        <strong class="stat">
-          <%= @user.followers.count %>人
-        </strong>
-      </li>
-    </ul>
 
     <% @users.each do |user| %>
       
