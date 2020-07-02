@@ -29,7 +29,7 @@
     </div>
     
     <ul class="user-tabs">
-      <li class="active">
+      <li class="tab">
         <a>
           投稿
           <strong class="stat">
@@ -37,7 +37,7 @@
           </strong>
         </a>
       </li>
-      <li>
+      <li class="tab">
         <a>
           いいね!
           <strong class="stat">
@@ -45,7 +45,7 @@
           </strong>
         </a>
       </li>
-      <li>
+      <li class="tab">
         <a>
           フォロー中
           <strong class="stat">
@@ -53,7 +53,7 @@
           </strong>
         </a>
       </li>
-      <li>
+      <li class="tab">
         <a>
           フォロワー
           <strong class="stat">
@@ -63,9 +63,9 @@
       </li>
     </ul>
     
-    <%= render 'show_posts'%>
-    <%= render 'show_likes'%>
-    <%= render 'show_following'%>
-    <%= render 'show_follower'%>
+    <li class="page"><%= render 'show_posts'%></li>
+    <li class="page"><%= render 'show_likes'%></li>
+    <li class="page"><%= render 'show_following'%></li>
+    <li class="page"><%= render 'show_follower'%></li>
   </div>
 </div>

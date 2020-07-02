@@ -151,6 +151,19 @@
       }
     );
     
+    //のスライド
+    $(".tab").eq(0).addClass("active");
+    $(".page").eq(0).addClass("act");
+    
+    $('.tab').click(function() {
+      $('.active').removeClass('active');
+      $('.act').removeClass('act');
+      
+      var clickedTab = $('.tab').index($(this));
+      $('.tab').eq(clickedTab).addClass('active');
+      $('.page').eq(clickedTab).addClass('act');
+    });
+    
     //その他 ================================
     //フラッシュが消える時間
     setTimeout("$('.flash').fadeOut('slow')", 900);
