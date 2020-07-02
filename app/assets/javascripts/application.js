@@ -140,31 +140,15 @@
     });
     
     //user関係 ================================
-    //user-tab切替
-    $('.user-tabs li').click(function() {
-      $('.active').removeClass('active');
-    
-      var clickedTab = $('.user-tabs li').index($(this));
-      $('.user-tabs li').eq(clickedTab).addClass('active');
-    });
-    
-    //user-tabにカーソルがある時
-    $('.user-tabs li').hover(
+    $('.user-tabs a').hover(
       function() {
         $(this).css('background-color', '#dbc9a2');
-      },
-      function() {
-        $('.user-tabs li').css('background-color', '#c0c0c0');
-      },
-    );
-    //user-tabにカーソルがある時
-    $('.user-tabs li a').hover(
-      function() {
         $(this).css('color', '#fff');
       },
       function() {
+        $(this).css('background-color', '#c0c0c0');
         $(this).css('color', '#343a40');
-      },
+      }
     );
     
     //その他 ================================

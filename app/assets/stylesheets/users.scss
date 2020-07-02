@@ -51,18 +51,15 @@
       display: flex;
       float: left;
       width: 25%;
-      background-color: #c0c0c0;
       a {
         flex: auto;
+        background-color: #c0c0c0;
         padding: 15px 30px;
         color: #343a40;
       }
     }
     .active {
-      border-bottom: 2px solid #ffd700;
-      a {
-        color: #343a40;
-      }
+      border-bottom: 3px solid #ffd700;
     }
   }
   
