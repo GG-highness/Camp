@@ -140,6 +140,15 @@
     });
     
     //user関係 ================================
+    $('.btn-primary').hover(
+      function() {
+        $(this).css('background-color', '#dbc9a2');
+      },
+      function() {
+        $(this).css('background-color', '#fff');
+      }
+    );
+    
     $('.user-tabs a').hover(
       function() {
         $(this).css('background-color', '#dbc9a2');
@@ -151,7 +160,7 @@
       }
     );
     
-    //のスライド
+    //tabのスライド
     $(".tab").eq(0).addClass("active");
     $(".page").eq(0).addClass("act");
     
