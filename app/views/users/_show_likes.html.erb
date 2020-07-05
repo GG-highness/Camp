@@ -1,0 +1,23 @@
+<% @likes.each do |like| %>
+  <% post = Post.find_by(id: like.post_id) %>
+      
+  <div class="posts-index-item">
+    <div class="post-left">
+      <% if post.user.image_name.file.nil? %>
+        <%= link_to("/users/#{post.user.id}") do %>
+          <image src="/assets/default_user.jpg"  %>
+        <% end %>
+      <% else %>
+        <%= link_to("/users/#{post.user.id}") do %>
+          <img src='<%= post.user.image_name %>'>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="post-right">
+      <div class="post-user-name">
+        <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+      </div>
+      <%= link_to(post.content, "/posts/#{post.id}") %>
+    </div>
+  </div>
+<% end %>

@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   get "simple_login" => 'users#simple_login'
   post "logout" => "users#logout"
-  get "users/:id/likes" => "users#likes"
   
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
@@ -22,4 +21,5 @@ Rails.application.routes.draw do
   resources :posts,          only: [:create,:edit, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
   end
+  resources :relationships,       only: [:create, :destroy]
 end

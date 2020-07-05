@@ -19,6 +19,8 @@
   
   
   $(document).on('turbolinks:load', function(){
+    
+    //post関係 ================================
     //写真投稿時のプレビュー
     var dropzone = $('.dropzone-area');
     var dropzone_box = $('.dropzone-box');
@@ -113,9 +115,6 @@
         });
       }
     });
-    
-    //フラッシュが消える時間
-    setTimeout("$('.flash').fadeOut('slow')", 900);
   
     //写真のスライド
     $(".slide").eq(0).addClass("active");
@@ -139,6 +138,44 @@
         $("h4").html('閉じる</h4><i class="fa fa-angle-double-up" aria-hidden="true">');
       }
     });
+    
+    //user関係 ================================
+    $('.btn-primary').hover(
+      function() {
+        $(this).css('background-color', '#dbc9a2');
+      },
+      function() {
+        $(this).css('background-color', '#fff');
+      }
+    );
+    
+    $('.user-tabs a').hover(
+      function() {
+        $(this).css('background-color', '#dbc9a2');
+        $(this).css('color', '#fff');
+      },
+      function() {
+        $(this).css('background-color', '#c0c0c0');
+        $(this).css('color', '#343a40');
+      }
+    );
+    
+    //tabのスライド
+    $(".tab").eq(0).addClass("active");
+    $(".page").eq(0).addClass("act");
+    
+    $('.tab').click(function() {
+      $('.active').removeClass('active');
+      $('.act').removeClass('act');
+      
+      var clickedTab = $('.tab').index($(this));
+      $('.tab').eq(clickedTab).addClass('active');
+      $('.page').eq(clickedTab).addClass('act');
+    });
+    
+    //その他 ================================
+    //フラッシュが消える時間
+    setTimeout("$('.flash').fadeOut('slow')", 900);
     
     //無限スクロール
     $('.jscroll').jscroll({

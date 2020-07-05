@@ -1,0 +1,36 @@
+<% @user.followers.each do |user| %>
+   
+  <div class="posts-index-item">
+    <div class="post-left">
+      <% if user.image_name.file.nil? %>
+        <%= link_to("/users/#{user.id}") do %>
+          <image src="/assets/default_user.jpg"  %>
+        <% end %>
+      <% else %>
+        <%= link_to("/users/#{user.id}") do %>
+          <img src='<%= user.image_name %>'>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="post-right">
+      <div class="post-user-name">
+        <%= link_to(user.name, "/users/#{user.id}") %>
+      </div>
+      <% if @current_user %>
+        <% if @user.id == @current_user.id %>
+          <% if Relationship.find_by(follower_id: @current_user.id, followed_id: user.id) %>
+            <%= form_for(@current_user.active_relationships.find_by(followed_id: user.id),
+              html: { method: :delete }) do |f| %>
+              <%= f.submit "フォロー中", class: "btn btn-primary" %>
+            <% end %>
+          <% else %>
+            <%= form_for(@current_user.active_relationships.build) do |f| %>
+              <div><%= hidden_field_tag :followed_id, user.id %></div>
+              <%= f.submit "フォローする", class: "btn btn-primary" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -21,29 +21,47 @@
         <p class="user-comment"><%= simple_format(@user.profile) %></p>
         <% end %>
       </li>
+      <% if @current_user %>
+        <% if @user.id != @current_user.id %>
+          <%= render 'follow_form'%>
+        <% end %>
+      <% end %>
     </div>
     
     <ul class="user-tabs">
-      <li class="active"><%= link_to("投稿", user_path(@user)) %></li>
-      <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+      <li class="tab">
+        <a>投稿
+          <strong class="stat">
+            <%= @user.posts.count %>件
+          </strong>
+        </a>
+      </li>
+      <li class="tab">
+        <a>いいね!
+          <strong class="stat">
+            <%= @likes.count %>件
+          </strong>
+        </a>
+      </li>
+      <li class="tab">
+        <a>フォロー中
+          <strong class="stat">
+            <%= @user.following.count %>人
+          </strong>
+        </a>
+      </li>
+      <li class="tab">
+        <a>フォロワー
+          <strong class="stat">
+            <%= @user.followers.count %>人
+          </strong>
+        </a>
+      </li>
     </ul>
     
-    <% @user.posts.each do |post| %>
-      <div class="posts-index-item">
-        <div class="post-left">
-          <% if post.user.image_name.file.nil? %>
-              <image src="/assets/default_user.jpg"  %>
-          <% else %>
-              <img src='<%= post.user.image_name %>'>
-          <% end %>
-        </div>
-        <div class="post-right">
-          <div class="post-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
-          </div>
-          <%= link_to(post.content, "/posts/#{post.id}") %>
-        </div>
-      </div>
-    <% end %>
+    <li class="page"><%= render 'show_posts'%></li>
+    <li class="page"><%= render 'show_likes'%></li>
+    <li class="page"><%= render 'show_following'%></li>
+    <li class="page" id="follower"><%= render 'show_follower'%></li>
   </div>
 </div>
