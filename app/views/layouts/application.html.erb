@@ -40,7 +40,9 @@
         <% end %>
       </ul>
       <div class="header-logo">
-        <%= link_to("△", "/") %>
+        <%= link_to("/") do %>
+          <%= image_tag 'header_icon.png' %>Camps
+        <% end %>
       </div>
       <div class="user-icon">
         <% if @current_user %>
