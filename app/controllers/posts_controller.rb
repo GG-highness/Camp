@@ -12,8 +12,8 @@ class PostsController < ApplicationController
     @likes_count = Like.where(post_id: @post.id).count
     @photos = Photo.where(post_id: @post.id)
     @photos_count = Photo.where(post_id: @post.id).count
-    @comment = Comment.new()
-    @comments = @post.comments
+    @comments = Comment.where(post_id: @post.id)
+    @comment = @post.comments.build
   end
   
   def new

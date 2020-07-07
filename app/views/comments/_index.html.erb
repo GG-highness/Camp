@@ -1,4 +1,4 @@
-<% @post.comments.first(2).each do |comment| %>
+<% @comments.first(2).each do |comment| %>
 <div class="comment">
   <div class="comment-left">
     <% if comment.user.image_name.file.nil? %>
@@ -21,7 +21,7 @@
 <% end %>
 
 <div class="hidden-comment">
-  <% @post.comments.offset(2).each do |comment| %>
+  <% @comments.offset(2).each do |comment| %>
   <div class="comment">
     <div class="comment-left">
       <% if comment.user.image_name.file.nil? %>
