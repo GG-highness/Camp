@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Camp</title>
+    <title>Camps</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,8 +41,11 @@
       </ul>
       <div class="header-logo">
         <%= link_to("/") do %>
-          <%= image_tag 'header_icon.png' %>Camps
+          <%= image_tag 'header_icon.png' %>
         <% end %>
+        <div class="logo-name">
+          <%= link_to("Camps", "/") %>
+        </div>
       </div>
       <div class="user-icon">
         <% if @current_user %>

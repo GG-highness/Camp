@@ -111,17 +111,18 @@
   }
   
   .header-logo {
-    flex: 1;
-    text-align: center;
+    float: right;
+    display: flex;
     padding-left: 20px;
     color: #db8400;
     font-size: 22px;
     line-height: 64px;
-    a{
-      font-family: 'Impact';
-      color: rgb(252, 252, 252);
-      font-size: 40px;
-      padding-bottom: 20px;
+    .logo-name{
+      a{
+        font-family: 'Impact';
+        color: rgb(252, 252, 252);
+        font-size: 45px;
+      }
     }
   }
   
