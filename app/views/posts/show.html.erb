@@ -48,10 +48,18 @@
       </div>
     </div>
     <div class="comment-create">
-      <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
+      <%= render "comments/form" %>
     </div>
     <div id="comments_area">
-      <%= render partial: "comments/index", locals: { comments: @comments } %>
+      <%= render "comments/index" %>
+    </div>
+    <div class="comment_head">
+      <div id="comment_count">
+        <%= @post.comments.count %>件のコメント
+      </div>
+      <div class="comment-other">
+        <h4>もっと見る....<i class="fa fa-angle-double-down" aria-hidden="true"></i></h4>
+      </div>
     </div>
   </div>
 </div>
