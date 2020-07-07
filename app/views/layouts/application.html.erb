@@ -16,6 +16,27 @@
 
   <body>
     <header>
+      <div class="user-icon">
+        <% if @current_user %>
+          <% if @current_user.image_name.file.nil? %>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <image src="/assets/default_user.jpg"  %>
+            <% end %>
+          <% else %>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <img src='<%= @current_user.image_name %>'>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="header-logo">
+        <%= link_to("/") do %>
+          <%= image_tag 'header_icon.png' %>
+        <% end %>
+        <div class="logo-name">
+          <%= link_to("Camps", "/") %>
+        </div>
+      </div>
       <ul class="header-menus">
         <% if @current_user %>
           <li>
@@ -39,28 +60,8 @@
           </li>
         <% end %>
       </ul>
-      <div class="header-logo">
-        <%= link_to("/") do %>
-          <%= image_tag 'header_icon.png' %>
-        <% end %>
-        <div class="logo-name">
-          <%= link_to("Camps", "/") %>
-        </div>
-      </div>
-      <div class="user-icon">
-        <% if @current_user %>
-          <% if @current_user.image_name.file.nil? %>
-            <%= link_to("/users/#{@current_user.id}") do %>
-              <image src="/assets/default_user.jpg"  %>
-            <% end %>
-          <% else %>
-            <%= link_to("/users/#{@current_user.id}") do %>
-              <img src='<%= @current_user.image_name %>'>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
     </header>
+    
     <center>
       <div class="center-main">
         <% if flash[:notice] %>
