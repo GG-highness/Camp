@@ -19,6 +19,19 @@
   
   
   $(document).on('turbolinks:load', function(){
+    //post関係 ================================
+    //コメントの表示切替
+    $('.comment-other').click(function() {
+      if ($(".hidden-comment").hasClass('open')) {
+        $(".hidden-comment").removeClass('open');
+        $(".hidden-comment").slideUp();
+        $("h4").html('もっと見る....</h4><i class="fa fa-angle-double-down" aria-hidden="true">');
+      } else {
+        $(".hidden-comment").addClass('open'); 
+        $(".hidden-comment").slideDown();
+        $("h4").html('閉じる</h4><i class="fa fa-angle-double-up" aria-hidden="true">');
+      }
+    });
     
     //post関係 ================================
     //写真投稿時のプレビュー
@@ -53,8 +66,6 @@
         dropzone.css({
           'width': `calc(100% - (20% * ${images.length}))`
         });
-  
-        
       } else if (images.length == 5) {
         $("#preview").empty();
         $.each(images, function(index, image) {
@@ -126,7 +137,7 @@
       $('.slide').eq(clickedIndex).addClass('active');
     });
     
-      //コメントの表示切替
+    //コメントの表示切替
     $('.comment-other').click(function() {
       if ($(".hidden-comment").hasClass('open')) {
         $(".hidden-comment").removeClass('open');
@@ -182,6 +193,11 @@
       contentSelector: '.jscroll', 
       nextSelector: 'span.next a',
       loadingHtml: '読み込み中'
+    });
+    
+    //ハンバーガーの表示切替
+    $('.fa-bars').click(function() {
+      
     });
     
   });

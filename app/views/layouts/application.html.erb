@@ -24,7 +24,10 @@
           <%= link_to("Camps", "/") %>
         </div>
       </div>
-      <span class="fa fa-bars menu-icon"></span>
+      <div class="menu-icon" id="navigation">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+      
     </header>
     
     <center>
@@ -36,10 +39,13 @@
         <% end %>
         <%= yield %>
       </div>
+      <div class="center-aside">
+        <nav>right</nav>
+        <div id='footer'>
+          <p><small>&copy; 2020 Camp All rights reserved.</small></p>
+        </div>
+      </div>
     </center>
-    <footer id='footer' >
-      <p><small>&copy; 2020 Camp All rights reserved.</small></p>
-    </footer>
     <script src="application.js"></script>
   </body>
 </html>
