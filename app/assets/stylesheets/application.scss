@@ -98,11 +98,12 @@
   }
   
   .menu-icon {
+    display: none;
     width: 60px;
     i{
       color: white;
       padding: 15px 0;
-      font-size: 35px;
+      font-size: 30px;
     }
   }
   
@@ -221,4 +222,15 @@
     width: 100%;
     border-radius: 0 0 2px 2px;
     font-size: 14px;
+  }
+  
+  /* レスポンシブデザイン ================================ */
+  /* パソコンより小さいデバイス向けレイアウト */
+  @media (max-width: 1000px) {
+    .menu-icon {
+      display: block;
+    }
+    .center-aside{
+      display: none;
+    }
   }
