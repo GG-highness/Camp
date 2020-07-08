@@ -105,6 +105,10 @@
       padding: 15px 0;
       font-size: 30px;
     }
+    input[type="checkbox"]{
+      position: absolute;
+      right: -50vw;
+    }
   }
   
 /* センター ================================ */
@@ -231,6 +235,10 @@
       display: block;
     }
     .center-aside{
-      display: none;
+      position: absolute;
+      right: -250px;
+      height: 100%;
+      transition: all 0.2s;
+      background: #ffffff;
     }
   }
