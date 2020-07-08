@@ -113,6 +113,8 @@
   
 /* センター ================================ */
   center {
+    max-width: 850px;
+    margin: 0 auto;
     display: flex;
     flex: 1;
     position: absolute;
@@ -124,6 +126,8 @@
   }
   
   .center-aside{
+    position: fixed; 
+    right: 0;
     width: 25%;
     min-width: 250px;
     nav{
