@@ -58,11 +58,10 @@
     margin: 0;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
   }
   
   .container {
-    max-width: 800px;
+    max-width: 750px;
     margin: 60px auto;
     padding-left: 15px;
     padding-right: 15px;
@@ -112,22 +111,13 @@
   }
   
 /* センター ================================ */
-  center {
-    max-width: 850px;
+  .main {
+    width: 780px;
     margin: 0 auto;
-    display: flex;
-    flex: 1;
-    position: absolute;
-    top: 64px;
-    width: 100%;
-  }
-  .center-main {
-    flex: 1;
+    /*flex: 1;*/
   }
   
-  .center-aside{
-    position: fixed; 
-    right: 0;
+  .aside{
     width: 25%;
     min-width: 250px;
     nav{
