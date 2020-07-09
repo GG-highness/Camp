@@ -62,7 +62,7 @@
   
   .container {
     max-width: 750px;
-    margin: 60px auto;
+    margin: 0px auto;
     padding-left: 15px;
     padding-right: 15px;
     clear: both;
@@ -113,11 +113,14 @@
 /* センター ================================ */
   .main {
     width: 780px;
-    margin: 0 auto;
+    margin: 65px auto 0 0;
     /*flex: 1;*/
   }
   
   .aside{
+    position: fixed; /* 要素の位置を固定する */
+    top: 65px; /* 基準の位置を画面の一番下に指定する */
+    right: 0; /* 基準の位置を画面の一番右に指定する */
     width: 25%;
     min-width: 250px;
     nav{
@@ -225,6 +228,9 @@
   /* レスポンシブデザイン ================================ */
   /* パソコンより小さいデバイス向けレイアウト */
   @media (max-width: 1000px) {
+    .main{
+      margin: 65px auto;
+    }
     .menu-icon {
       display: block;
     }
