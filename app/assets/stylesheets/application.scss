@@ -95,22 +95,24 @@
     }
   }
   
-  .menu-icon {
+  .open{
     display: none;
     width: 60px;
     height: 65px;
     position: fixed;
-    top: 0px;
+    top: 0;
     right: 0;
+    z-index: 10;
     i{
       color: white;
       padding: 15px 0;
       font-size: 30px;
     }
-    input[type="checkbox"]{
-      position: absolute;
-      right: -50vw;
-    }
+  }
+  input[type="checkbox"]{
+    position: absolute;
+    right: -50vw;
+    top: -50px;
   }
   
 /* センター ================================ */
@@ -230,17 +232,33 @@
   /* レスポンシブデザイン ================================ */
   /* パソコンより小さいデバイス向けレイアウト */
   @media (max-width: 1000px) {
+    header {
+      width: 100%;
+    }
     .main{
+      width: 100%;
       margin: 65px auto;
     }
-    .menu-icon {
+    .open {
       display: block;
     }
-    .center-aside{
+    .close {
+      display: block;
+    }
+    .aside{
       position: absolute;
-      right: -250px;
-      height: 100%;
+      right: -270px;
       transition: all 0.2s;
       background: #ffffff;
+    }
+    input[type="checkbox"]:checked ~ .aside {
+      right: 0;
+    }
+    input[type="checkbox"]:checked ~ .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #000000 !important;
+      opacity: 0.8;
     }
   }
