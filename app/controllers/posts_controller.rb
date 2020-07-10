@@ -25,14 +25,8 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     
     if @post.save
-      params[:photos][:image].each do |image|
-        @post.photos.create(post_image: image, post_id: @post.id)
-      end
       flash[:notice] = "投稿を作成しました"
       redirect_to("/")
-    else
-      @post.photos.build
-      render("posts/new")
     end
   end
   

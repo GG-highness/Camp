@@ -11,27 +11,8 @@
             </div>
           <% end %>
           
-          <div class="upload-box">
-            <div class="upload-box__head">
-              <h3 class='bigger'>写真<span>(必須)</span></h3>
-            </div>
-            <p class='discription'>(最大5枚までアップロードできます)</p>
-            
-            <%= f.fields_for :photos do |image| %>
-              <div class="dropzone-container">
-                <div id="preview"></div>
-                <div class="dropzone-area">
-                  <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
-                    <div class="input_area">
-                      <%= image.file_field :image, multiple: true, name: 'photos[image][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
-                    </div>
-                    <i class="fa fa-camera"></i>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
           <%= f.text_area :content, placeholder: "content" %>
+          
           <%= f.submit "投稿" %>
         <% end %>
       </div>
