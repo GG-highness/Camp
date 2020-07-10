@@ -3,7 +3,7 @@
     <h1 class="form-heading">投稿する</h1>
     <div class="form">
       <div class="form-body">
-        <%= form_for @post do |f| %>
+        <%= form_with model: @post do |f| %>
           
           <% @post.errors.full_messages.each do |message| %>
             <div class="form-error">
@@ -12,7 +12,9 @@
           <% end %>
           
           <%= f.text_area :content, placeholder: "content" %>
-          
+          <%= f.fields_for :photo, @post.photos.build do |photo| %>
+            <%= photo.file_field :post_image %>
+          <% end %>
           <%= f.submit "投稿" %>
         <% end %>
       </div>
