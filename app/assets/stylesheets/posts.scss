@@ -7,6 +7,7 @@
     background-color: white;
     overflow: hidden;
     box-shadow: 0 2px 6px #c1ced7;
+    margin-bottom: 2px;
   }
   
   .post-left img {
@@ -33,6 +34,16 @@
     text-align: left;
   }
 
+  .flex-list {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      flex: auto;
+      width: 50%;
+    }
+  }
+  
+
   nav.pagination {
     display: none;
   }
@@ -58,7 +69,6 @@
     border-left: 1px solid #343a40;
     border-right: 1px solid #343a40;
     border-top: 1px solid #343a40;
-    
   }
   
   .slides {
