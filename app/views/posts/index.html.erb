@@ -21,6 +21,22 @@
           <%= link_to("/posts/#{post.id}") do %>
             <%=safe_join(post.content.split("\n"),tag(:br))%>
           <% end %>
+          <div class="post-photos">
+            <ul class="slides">
+            <% post.photos.each do |photo| %>
+              <li class="slide"><img src="<%= photo.post_image %>"></li>
+            <% end %>
+            </ul>
+          </div>
+          <div class="index-btn-wrapper">
+            <% i=1  %>
+            <% while i <= 5 %>
+              <div class="index-btn">
+                <%= i %>
+                <% i = i + 1 %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>

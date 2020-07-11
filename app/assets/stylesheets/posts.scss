@@ -50,8 +50,15 @@
     }
   }
   .post-photos img{
-    max-width: 650px;
-    max-height: 650px;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    border-bottom: 1px solid #343a40;
+    border-left: 1px solid #343a40;
+    border-right: 1px solid #343a40;
+    border-top: 1px solid #343a40;
+    
   }
   
   .slides {
