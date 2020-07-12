@@ -128,7 +128,7 @@
         $("h4").html('閉じる</h4><i class="fa fa-angle-double-up" aria-hidden="true">');
       }
     });
-  
+    
     //写真のスライド
     $(".slide").eq(0).addClass("active");
   

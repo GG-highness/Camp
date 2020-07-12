@@ -61,7 +61,7 @@
   }
   
   .container {
-    max-width: 650px;
+    max-width: 750px;
     margin: 0px auto;
     padding-left: 15px;
     padding-right: 15px;
@@ -260,18 +260,5 @@
       height: 100%;
       background: #000000 !important;
       opacity: 0.8;
-    }
-    .post-photos img{
-      height: 240px;
-    }
-  }
-  
-  @media (max-width: 670px) {
-    .flex-list {
-      flex-direction: column;
-    }
-    .flex-list li {
-      margin: 0 auto;
-      width: 100%;
     }
   }

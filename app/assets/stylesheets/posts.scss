@@ -36,11 +36,6 @@
 
   .flex-list {
     display: flex;
-    flex-wrap: wrap;
-    li {
-      flex: auto;
-      width: 50%;
-    }
   }
   
 
@@ -142,8 +137,8 @@
     }
   }
 
-/* posts/new ================================ */
-    //image投稿欄のCSS
+  /* posts/new ================================ */
+  //image投稿欄のCSS
   .upload-box{
     span{
       color: #f08080;
