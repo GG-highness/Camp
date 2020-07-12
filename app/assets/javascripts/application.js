@@ -35,8 +35,8 @@
       inputs.push($(this));
       var img = $(`<div class= "img_view"><img></div>`);
       reader.onload = function(e) {
-        var btn_wrapper = $('<div class="btn_wrapper"><div class="btn delete">削除</div></div>');
-        img.append(btn_wrapper);
+        var btn_delete = $('<div class="btn_delete"><i class="fa fa-times" aria-hidden="true"></i></div>');
+        img.append(btn_delete);
         img.find('img').attr({
           src: e.target.result
         });
@@ -72,8 +72,8 @@
     });
     
     
-    $(document).on('click', '.delete', function() {
-      var target_image = $(this).parent().parent();
+    $(document).on('click', '.btn_delete', function() {
+      var target_image = $(this).parent()
       $.each(inputs, function(index, input){
         if ($(this).data('image') == target_image.data('image')){
           $(this).remove();
