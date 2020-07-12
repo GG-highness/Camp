@@ -44,18 +44,18 @@
       reader.readAsDataURL(file);
       images.push(img);
   
-      if (images.length <= 4) {
+      if (images.length <= 3) {
         $('#preview').empty();
         $.each(images, function(index, image) {
           image.data('image', index);
           preview.append(image);
         });
         dropzone.css({
-          'width': `calc(100% - (20% * ${images.length}))`
+          'width': `calc(100% - (25% * ${images.length}))`
         });
   
         
-      } else if (images.length == 5) {
+      } else if (images.length == 4) {
         $("#preview").empty();
         $.each(images, function(index, image) {
           image.data("image", index);
@@ -98,7 +98,7 @@
         });
         $('input[type= "file"].upload-image:first').after(input)
       });
-      if (images.length == 5) {
+      if (images.length == 4) {
         dropzone.css({
           'display': 'none'
         });
@@ -111,7 +111,7 @@
           preview.append(image);
         });
         dropzone.css({
-          'width': `calc(100% - (100px * ${images.length}))`
+          'width': `calc(100% - (25% * ${images.length}))`
         });
       }
     });
