@@ -50,11 +50,6 @@
           image.data('image', index);
           preview.append(image);
         });
-        dropzone.css({
-          'width': `calc(100% - (25% * ${images.length}))`
-        });
-  
-        
       } else if (images.length == 4) {
         $("#preview").empty();
         $.each(images, function(index, image) {
@@ -111,7 +106,7 @@
           preview.append(image);
         });
         dropzone.css({
-          'width': `calc(100% - (25% * ${images.length}))`
+          'width': `calc(100% - (100px * ${images.length}))`
         });
       }
     });
