@@ -235,8 +235,8 @@
     }
     .aside{
       position: absolute;
-      right: -270px;
-      transition: all 0.2s;
+      right: -280px;
+      transition: all 0.3s;
       background: #ffffff;
     }
     input[type="checkbox"]:checked ~ .aside {
@@ -248,6 +248,23 @@
       height: 100%;
       background: #000000 !important;
       opacity: 0.8;
+    }
+  }
+  @media (max-width:670px) {
+    .flex-list{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .flex-list li{
+      flex: auto;
+      width: 50%;
+      height: 140px;
+    }
+    .post-photos {
+      img{
+        max-height: 140px;
+        object-fit: cover;
+      }
     }
   }
   
@@ -361,12 +378,25 @@
     padding-left: 25px;
     text-align: left;
   }
+  
+  .post-photos {
+    img{
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-bottom: 1px solid #343a40;
+      border-left: 1px solid #343a40;
+      border-right: 1px solid #343a40;
+      border-top: 1px solid #343a40;
+    }
+  }
 
-  .flex-list {
-    display: flex;
+  .noline{
+    a {
+      text-decoration: none;
+    }
   }
   
-
   nav.pagination {
     display: none;
   }
@@ -382,16 +412,6 @@
       margin: 0 60px;
       text-align: left;
     }
-  }
-  .post-photos img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 15px;
-    border-bottom: 1px solid #343a40;
-    border-left: 1px solid #343a40;
-    border-right: 1px solid #343a40;
-    border-top: 1px solid #343a40;
   }
   
   .slides {
