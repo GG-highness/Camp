@@ -192,4 +192,14 @@
       loadingHtml: '読み込み中'
     });
     
+    //asideホバー時
+    $('.aside li').hover(
+      function() {
+        $(this).css('background-color', '#dbc9a2');
+      },
+      function() {
+        $(this).css('background-color', '#fff');
+      }
+    );
+    
   });
