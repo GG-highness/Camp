@@ -201,5 +201,4 @@
         $(this).css('background-color', '#fff');
       }
     );
-    
   });
