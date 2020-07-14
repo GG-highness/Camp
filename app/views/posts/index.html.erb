@@ -17,7 +17,9 @@
         <div class="post-right">
           <div class="post-user-name">
             <%= link_to(post.user.name, "/users/#{post.user.id}") %>
-            <%= post.created_at %>
+            <span class="timestamp">
+            <%= time_ago_in_words(post.created_at) %>
+            </span>
           </div>
           <div class="noline">
           <%= link_to("/posts/#{post.id}") do %>

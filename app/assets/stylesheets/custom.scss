@@ -370,8 +370,14 @@
     object-fit: cover;
   }
 
-  .post-user-name a:hover {
-    color: #3ecdc6;
+  .post-user-name {
+    a:hover {
+      color: #3ecdc6;
+    }
+    span{
+      margin-left: 20px;
+      font-size: 20px;
+    }
   }
 
   .post-left {
