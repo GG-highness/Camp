@@ -17,6 +17,7 @@
         <div class="post-right">
           <div class="post-user-name">
             <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+            <%= post.created_at %>
           </div>
           <div class="noline">
           <%= link_to("/posts/#{post.id}") do %>
