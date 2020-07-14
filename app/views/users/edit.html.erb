@@ -1,21 +1,33 @@
 <div class="users-edit">
   <div class="container">
-    <div class="form-heading">アカウント編集</div>
     <div class="form users-form">
       <div class="form-body">
         <%= form_for(@user) do |f| %>
           <%= render 'shared/error_messages' %>
-    
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-    
-          <%= f.label :image_name %>
-          <%= f.file_field :image_name %>
           
-          <%= f.label :email %>
+          <div class="picture">
+            <%= f.label :image_name, class: "drop", for: "change-image" do %>
+              <div class="input_area">
+                <%= f.file_field :image_name, id: "change-image", class: "prev-image" %>
+              </div>
+              <i class="fa fa-picture-o"></i>
+            <% end %>
+          </div>
+          <div class="user_image_prev">
+            <% if @user.image_name? %>
+              <img src='<%= @user.image_name %>'>
+            <% else %>
+              <image src="/assets/default_user.jpg"  %>
+            <% end %>
+          </div>
+          
+          <%= f.label :name, "名前" %>
+          <%= f.text_field :name %>
+          
+          <%= f.label :email, "メールアドレス" %>
           <%= f.email_field :email %>
           
-          <%= f.label :profile %>
+          <%= f.label :profile, "プロフィール" %>
           <%= f.text_area :profile, class: "profile" %>
           
           <%= f.submit "保存", class: "btn" %>
@@ -24,3 +36,7 @@
     </div>
   </div>
 </div>
+
+
+
+  

@@ -1,17 +1,34 @@
-<% @user.posts.each do |post| %>
+<% @user.posts.order(created_at: :desc).each do |post| %>
   <div class="posts-index-item">
     <div class="post-left">
       <% if post.user.image_name.file.nil? %>
-        <image src="/assets/default_user.jpg"  %>
+        <%= link_to("/users/#{post.user.id}") do %>
+          <image src="/assets/default_user.jpg"  %>
+        <% end %>
       <% else %>
-        <img src='<%= post.user.image_name %>'>
+        <%= link_to("/users/#{post.user.id}") do %>
+          <img src='<%= post.user.image_name %>'>
+        <% end %>
       <% end %>
     </div>
     <div class="post-right">
       <div class="post-user-name">
         <%= link_to(post.user.name, "/users/#{post.user.id}") %>
       </div>
-      <%= link_to(post.content, "/posts/#{post.id}") %>
+      <div class="noline">
+      <%= link_to("/posts/#{post.id}") do %>
+        <%=safe_join(post.content.split("\n"),tag(:br))%>
+        <% if post.photos %>
+          <div class="post-photos">
+            <ul class="flex-list">
+            <% post.photos.each do |photo| %>
+              <li><img src="<%= photo.post_image %>"></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
     </div>
   </div>
 <% end %>

@@ -1,0 +1,671 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* reset ================================ */
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font: 100%/1.5 'Avenir Next', 'Hiragino Sans', sans-serif;
+    line-height: 1.7;
+    letter-spacing: 1px;
+  }
+  
+  ul, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #2d3133;
+    font-size: 14px;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+  
+  input {
+    background-color: transparent;
+    outline-width: 0;
+  }
+  
+  form input[type="submit"] {
+    border: 1px solid #d8dadf;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  
+/* 共通レイアウト ================================ */
+  body {
+    color: #343a40;
+    background-color: #ffffff;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+  }
+  
+  .container {
+    max-width: 750px;
+    margin: 0px auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    clear: both;
+  }
+  
+/* ヘッダー ================================ */
+  header {
+    height: 65px;
+    width: 100%;
+    background-color: #343a40;
+    position: fixed;
+    top: 0;
+    display: flex;
+  }
+  
+  .header-logo {
+    float: right;
+    display: flex;
+    flex: 1;
+    padding-left: 50px;
+    color: #db8400;
+    font-size: 22px;
+    line-height: 64px;
+    .logo-name{
+      a{
+        font-family: 'Impact';
+        color: rgb(252, 252, 252);
+        font-size: 45px;
+      }
+    }
+  }
+  
+  .open{
+    display: none;
+    width: 60px;
+    height: 65px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    i{
+      color: white;
+      padding: 15px 0;
+      font-size: 30px;
+    }
+  }
+  input[type="checkbox"]{
+    position: absolute;
+    right: -50vw;
+    top: -50px;
+  }
+  
+/* センター ================================ */
+  .main {
+    width: 780px;
+    margin: 65px auto 0 0;
+  }
+  
+  .aside{
+    position: fixed;
+    top: 65px;
+    right: 0;
+    width: 25%;
+    min-width: 250px;
+    nav{
+      a{
+        font-size: 16px;
+      }
+    }
+    #footer {
+      background-color: #343a40;
+      color:#fff;
+      min-height: 50px;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+  }
+  
+/* フォーム================================ */
+  .form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 2px 6px #888888;
+  }
+  
+  .form-heading {
+    font-weight: 300;
+    margin: 60px 0 20px;
+    font-size: 48px;
+    color: #053666;
+  }
+  
+  .form-body {
+    margin-top: 40px;
+    padding: 30px;
+    span{
+      color: #f08080;
+    }
+    .discription{
+      font-size: 12px;
+    }
+  }
+  
+  .form-error {
+    color: #ff4d75;
+  }
+  
+  .form input {
+    width: 100%;
+    border: 1px solid #d8dadf;
+    padding: 10px;
+    color: #57575f;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-radius: 2px;
+  }
+    
+  .form input[type="submit"] {
+    background-color: #ffffff;
+    color: rgb(201, 57, 57);
+    cursor: pointer;
+    font-weight: 300;
+    width: 120px;
+    border-radius: 2px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    float: right;
+  }
+  
+  .form-body:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  textarea{
+    width: 100%;
+    min-height: 100px;
+    padding: 5px;
+    opacity: 0.8;
+    border-radius: 4px;
+    border: 2px solid rgb(139, 139, 139);
+    box-shadow: none;
+    outline: none;
+    -webkit-appearance: none;
+    resize: none;
+    font-size: 15px;
+  }
+  
+  .btn-primary{
+    width: 100px;
+    height: 35px;
+    padding: 2px 5px;
+    border-radius: 20px;
+    background-color: #888;
+  }
+  
+/* フラッシュ ================================ */
+  .flash {
+    padding: 10px 0;
+    color: white;
+    background: #10c000;
+    text-align: center;
+    position: absolute;
+    top: 64px;
+    z-index: 10;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+    font-size: 14px;
+  }
+  
+/* レスポンシブデザイン ================================ */
+/* パソコンより小さいデバイス向けレイアウト */
+  @media (max-width: 1000px) {
+    header {
+      width: 100%;
+    }
+    .main{
+      width: 100%;
+      margin: 65px auto;
+    }
+    .open {
+      display: block;
+    }
+    .close {
+      display: block;
+    }
+    .aside{
+      position: absolute;
+      right: -280px;
+      transition: all 0.3s;
+      background: #ffffff;
+    }
+    input[type="checkbox"]:checked ~ .aside {
+      right: 0;
+    }
+    input[type="checkbox"]:checked ~ .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #000000 !important;
+      opacity: 0.8;
+    }
+  }
+  @media (max-width:670px) {
+    .flex-list{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .flex-list li{
+      flex: auto;
+      width: 50%;
+      height: 140px;
+    }
+    .post-photos {
+      img{
+        max-height: 140px;
+        object-fit: cover;
+      }
+    }
+  }
+
+/* コメント ================================ */
+  .comment-from{
+    padding: 10px 25px;
+    color: #000;
+    background-color: #f5f5f5;
+    border-bottom: 3px solid #808080;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+    .comment-left {
+      float: left;
+      width: 10%;
+      img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px #c1ced7;
+        object-fit: cover;
+        margin-top: 27px;
+      }
+    }
+    .comment-right {
+      float: left;
+      width: 90%;
+      padding-left: 25px;
+      text-align: left;
+      .aaaaaa{
+        textarea{
+          height: 50px;
+        }
+        input[type="submit"] {
+          background-color: #ffffff;
+          color: rgb(201, 57, 57);
+          cursor: pointer;
+          font-weight: 300;
+          width: 120px;
+          border-radius: 2px;
+          margin-top: 8px;
+          float: right;
+        }
+      }
+    }
+  }
+ 
+  .comment_head{
+    display: flex
+  }
+  .comment{
+    padding: 10px 25px;
+    margin-top:5px;
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #808080;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+    .comment-left {
+      float: left;
+      width: 10%;
+      img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px #c1ced7;
+        object-fit: cover;
+        margin-top: 27px;
+      }
+    }
+    .comment-right {
+      float: left;
+      width: 90%;
+      padding-left: 25px;
+      text-align: left;
+    }
+  }
+  
+  .hidden-comment{
+    display: none;
+  }
+  
+/* posts/index ================================ */
+  .posts-index-item {
+    padding: 20px 30px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin-bottom: 2px;
+  }
+  
+  .post-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
+  }
+
+  .post-user-name {
+    a:hover {
+      color: #3ecdc6;
+    }
+    span{
+      margin-left: 20px;
+      font-size: 20px;
+    }
+  }
+
+  .post-left {
+    float: left;
+    width: 10%;
+  }
+
+  .post-right {
+    float: left;
+    width: 90%;
+    padding-left: 25px;
+    text-align: left;
+  }
+  
+  .post-photos {
+    img{
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-bottom: 1px solid #343a40;
+      border-left: 1px solid #343a40;
+      border-right: 1px solid #343a40;
+      border-top: 1px solid #343a40;
+    }
+  }
+
+  .noline{
+    a {
+      text-decoration: none;
+    }
+  }
+  
+  nav.pagination {
+    display: none;
+  }
+
+/* posts/show ================================ */
+  .posts-show-item {
+    padding: 30px 30px 15px 30px;
+    background-color: white;
+    box-shadow: 0 2px 6px #c1ced7;
+    overflow: hidden;
+    p {
+      font-size: 22px;
+      margin: 0 60px;
+      text-align: left;
+    }
+  }
+  
+  .slides {
+    padding: 0;
+  }
+
+  .slide {
+    display: none;
+  }
+
+  .active {
+    display: block;
+  }
+  
+  .index-btn-wrapper{
+    text-align: center;
+  }
+  
+  .index-btn{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    background-color: #8899a6;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    margin: 10px;
+    display: inline-block;
+  }
+  
+  .post-user-name {
+    display:flex;
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px #c1ced7;
+      object-fit: cover;
+    }
+    a {
+      font-size: 20px;
+      vertical-align: text-top;
+    }
+  }
+
+  .post-time {
+    color: #8899a6;
+    margin-bottom: 10px;
+  }
+  
+  .like-btn {
+    color: #8899a6;
+  }
+
+  .like-btn-unlike {
+    color: #ff2581;
+  }
+
+  .posts-show-item .fa {
+    font-size: 16px;
+    margin-right: 3px;
+  }
+
+  .post-menus {
+    margin-top: 20px;
+    a, .post-menus input {
+      color: #8899a6;
+      text-decoration: underline;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+  }
+
+/* posts/new ================================ */
+//image投稿欄のCSS
+  .dropzone-container{
+    display: block;
+    margin: 5px auto 0;
+
+//プレビュー表示欄のCSS
+    #preview {
+      display: flex;
+      
+      width: 100%;
+    }
+    .img_view {
+      height: 180px;
+      width: 25%;
+      margin: 0 0 10px 0;
+      border: 1px solid #eee;
+      position: relative;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+      .btn_delete {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        border-radius: 50%;
+        color: #ffffff;
+        width: 20px;
+        height: 20px;
+        font-size: 15px;
+        background: #000000;
+        cursor: pointer;
+        .fa{
+          position: absolute;
+          top: 2px;
+          left: 4px;
+        }
+      }
+    }
+
+//投稿クリックエリアのCSS
+    .dropzone-area {
+      width: 60px;
+      height: 35px;
+
+      .dropzone-box {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        i{
+          color: #343a40;
+          font-size: 35px;
+          position: absolute;
+          top: 40%;
+          right: 15px;
+        }
+      }
+    }
+  }
+  .input_area {
+    display: none;
+  }
+/* users/show ================================ */
+  .user-show {
+    text-align: center;
+  }
+
+  .user {
+    margin-bottom: 20px;
+  }
+
+  .user img {
+    width: 80px;
+    height: 80px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin: 20px 0 10px;
+    object-fit: cover;
+  }
+
+  .user h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .user p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .user a {
+    color: #8899a6;
+    text-decoration: underline;
+    font-weight: 200;
+  }
+
+  .user span {
+    color: #afb6bf;
+    font-weight: 200;
+    padding: 0 6px 0 8px;
+  }
+  
+  .user-tabs {
+    margin-top: 20px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+    li {
+      display: flex;
+      float: left;
+      width: 25%;
+      a {
+        flex: auto;
+        background-color: #c0c0c0;
+        padding: 20px 5px;
+        color: #343a40;
+      }
+      strong{
+        float: right;
+        width: 60px;
+        height: 25px;
+        padding: 2px 5px;
+        border-radius: 40%;
+        background-color: #515151;
+        color: #fff;
+      }
+    }
+    .active {
+      border-bottom: 3px solid #ffd700;
+    }
+  }
+  
+  .page {
+    display: none;
+  }
+  .act {
+    display: block;
+  }
+  
+/* users/new, users/edit ================================ */
+  .users-form input {
+    margin-bottom: 15px;
+  }
+  
+  #error_explanation {
+    color: red;
+    ul {
+      color: red;
+      margin: 0 0 30px 0;
+    }
+  }
+  
+  .picture{
+    i{
+      color: #343a40;
+      font-size: 35px;
+    }
+  }
+  .user_image_prev{
+    text-align: center !important;
+    img{
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px #c1ced7;
+    }
+  }
+  

@@ -35,8 +35,8 @@
       inputs.push($(this));
       var img = $(`<div class= "img_view"><img></div>`);
       reader.onload = function(e) {
-        var btn_wrapper = $('<div class="btn_wrapper"><div class="btn delete">削除</div></div>');
-        img.append(btn_wrapper);
+        var btn_delete = $('<div class="btn_delete"><i class="fa fa-times" aria-hidden="true"></i></div>');
+        img.append(btn_delete);
         img.find('img').attr({
           src: e.target.result
         });
@@ -44,18 +44,13 @@
       reader.readAsDataURL(file);
       images.push(img);
   
-      if (images.length <= 4) {
+      if (images.length <= 3) {
         $('#preview').empty();
         $.each(images, function(index, image) {
           image.data('image', index);
           preview.append(image);
         });
-        dropzone.css({
-          'width': `calc(100% - (20% * ${images.length}))`
-        });
-  
-        
-      } else if (images.length == 5) {
+      } else if (images.length == 4) {
         $("#preview").empty();
         $.each(images, function(index, image) {
           image.data("image", index);
@@ -72,8 +67,8 @@
     });
     
     
-    $(document).on('click', '.delete', function() {
-      var target_image = $(this).parent().parent();
+    $(document).on('click', '.btn_delete', function() {
+      var target_image = $(this).parent()
       $.each(inputs, function(index, input){
         if ($(this).data('image') == target_image.data('image')){
           $(this).remove();
@@ -98,7 +93,7 @@
         });
         $('input[type= "file"].upload-image:first').after(input)
       });
-      if (images.length == 5) {
+      if (images.length == 4) {
         dropzone.css({
           'display': 'none'
         });
@@ -115,7 +110,20 @@
         });
       }
     });
-  
+    
+    //コメントの表示切替
+    $('.comment-other').click(function() {
+      if ($(".hidden-comment").hasClass('open')) {
+        $(".hidden-comment").removeClass('open');
+        $(".hidden-comment").slideUp();
+        $("h4").html('もっと見る....</h4><i class="fa fa-angle-double-down" aria-hidden="true">');
+      } else {
+        $(".hidden-comment").addClass('open'); 
+        $(".hidden-comment").slideDown();
+        $("h4").html('閉じる</h4><i class="fa fa-angle-double-up" aria-hidden="true">');
+      }
+    });
+    
     //写真のスライド
     $(".slide").eq(0).addClass("active");
   
@@ -126,7 +134,7 @@
       $('.slide').eq(clickedIndex).addClass('active');
     });
     
-      //コメントの表示切替
+    //コメントの表示切替
     $('.comment-other').click(function() {
       if ($(".hidden-comment").hasClass('open')) {
         $(".hidden-comment").removeClass('open');
@@ -140,15 +148,6 @@
     });
     
     //user関係 ================================
-    $('.btn-primary').hover(
-      function() {
-        $(this).css('background-color', '#dbc9a2');
-      },
-      function() {
-        $(this).css('background-color', '#fff');
-      }
-    );
-    
     $('.user-tabs a').hover(
       function() {
         $(this).css('background-color', '#dbc9a2');
@@ -182,6 +181,32 @@
       contentSelector: '.jscroll', 
       nextSelector: 'span.next a',
       loadingHtml: '読み込み中'
+    });
+    
+    //asideホバー時
+    $('.aside li').hover(
+      function() {
+        $(this).css('background-color', '#dbc9a2');
+      },
+      function() {
+        $(this).css('background-color', '#fff');
+      }
+    );
+    
+    //user-edit時のプレビュー
+    $(function () {
+      $('#change-image').change(function () {
+        $('img').remove();
+        var file = $(this).prop('files')[0];
+        if (!file.type.match('image.*')) {
+          return;
+        }
+        var fileReader = new FileReader();
+        fileReader.onloadend = function () {
+          $('.user_image_prev').html('<img src="' + fileReader.result + '"/>');
+        }
+        fileReader.readAsDataURL(file);
+      });
     });
     
   });

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Camp</title>
+    <title>Camps</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,61 +16,82 @@
 
   <body>
     <header>
-      <ul class="header-menus">
+      <div class="header-logo">
+        <%= link_to("/") do %>
+          <%= image_tag 'header_icon.png' %>
+        <% end %>
+        <div class="logo-name">
+          <%= link_to("Camps", "/") %>
+        </div>
+      </div>
+    </header>
+    
+    <input id="menu" type="checkbox"></input>
+    <label for="menu" class="open"><i class="fa fa-bars"></i></label>
+    <label for="menu" class="back"></label>
+    
+    <div class="main">
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+    
+    <div class="aside">
+      <nav>
+        <ul>
         <% if @current_user %>
           <li>
-            <%= link_to("新規投稿", "/posts/new") %>
+            <%= link_to("/") do %>
+            <i class="fa fa-home" aria-hidden="true"></i>ホーム
+            <% end %>
           </li>
           <li>
-            <%= link_to("タイムライン", "/") %>
+            <%= link_to("/logout", {method: :post}) do %>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>ログアウト
+            <% end %>
           </li>
           <li>
-            <%= link_to("ログアウト", "/logout", {method: :post}) %>
+            <%= link_to("/users/#{@current_user.id}") do %>
+            <i class="fa fa-user" aria-hidden="true"></i>マイページ
+            <% end %>
+          </li>
+          <li>
+            <%= link_to(edit_user_path(@current_user)) do %>
+            <i class="fa fa-cog" aria-hidden="true"></i>設定
+            <% end %>
+          </li>
+          <li>
+            <%= link_to("/posts/new") do %>
+            <i class="fa fa-plus" aria-hidden="true"></i>新規投稿
+            <% end %>
           </li>
         <% else %>
           <li>
-            <%= link_to("タイムライン", "/") %>
+            <%= link_to("/") do %>
+            <i class="fa fa-home" aria-hidden="true"></i>ホーム
+            <% end %>
           </li>
           <li>
-            <%= link_to("新規登録", new_user_path) %>
+            <%= link_to("/login") do %>
+            <i class="fa fa-sign-in" aria-hidden="true"></i>ログイン
+            <% end %>
           </li>
           <li>
-            <%= link_to("ログイン", "/login") %>
+            <%= link_to(new_user_path) do %>
+            <i class="fa fa-user-plus" aria-hidden="true"></i>新規登録
+            <% end %>
           </li>
         <% end %>
-      </ul>
-      <div class="header-logo">
-        <%= link_to("△", "/") %>
+        </ul>
+      </nav>
+      <div id='footer'>
+        <p><small>&copy; 2020 Camp All rights reserved.</small></p>
       </div>
-      <div class="user-icon">
-        <% if @current_user %>
-          <% if @current_user.image_name.file.nil? %>
-            <%= link_to("/users/#{@current_user.id}") do %>
-              <image src="/assets/default_user.jpg"  %>
-            <% end %>
-          <% else %>
-            <%= link_to("/users/#{@current_user.id}") do %>
-              <img src='<%= @current_user.image_name %>'>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </header>
-    <center>
-      <div class="center-nav">left</div>
-      <div class="center-main">
-        <% if flash[:notice] %>
-          <div class="flash">
-            <%= flash[:notice] %>
-          </div>
-        <% end %>
-        <%= yield %>
-      </div>
-      <div class="center-aside">right</div>
-    </center>
-    <footer id='footer' >
-      <p><small>&copy; 2020 Camp All rights reserved.</small></p>
-    </footer>
+    </div>
+      
     <script src="application.js"></script>
   </body>
 </html>
