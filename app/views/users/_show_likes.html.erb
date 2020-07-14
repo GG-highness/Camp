@@ -17,7 +17,20 @@
       <div class="post-user-name">
         <%= link_to(post.user.name, "/users/#{post.user.id}") %>
       </div>
-      <%= link_to(post.content, "/posts/#{post.id}") %>
+      <div class="noline">
+      <%= link_to("/posts/#{post.id}") do %>
+        <%=safe_join(post.content.split("\n"),tag(:br))%>
+        <% if post.photos %>
+          <div class="post-photos">
+            <ul class="flex-list">
+            <% post.photos.each do |photo| %>
+              <li><img src="<%= photo.post_image %>"></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
     </div>
   </div>
 <% end %>
