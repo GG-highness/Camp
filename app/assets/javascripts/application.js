@@ -148,15 +148,6 @@
     });
     
     //user関係 ================================
-    $('.btn-primary').hover(
-      function() {
-        $(this).css('background-color', '#dbc9a2');
-      },
-      function() {
-        $(this).css('background-color', '#fff');
-      }
-    );
-    
     $('.user-tabs a').hover(
       function() {
         $(this).css('background-color', '#dbc9a2');
@@ -202,7 +193,7 @@
       }
     );
     
-    
+    //user-edit時のプレビュー
     $(function () {
       $('#change-image').change(function () {
         $('img').remove();
