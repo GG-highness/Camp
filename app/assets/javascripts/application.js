@@ -62,7 +62,7 @@
   
       } 
       
-      var new_image = $(`<input multiple= "multiple" name="photos[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
+      var new_image = $('<input multiple= "multiple" name="photos[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">');
       input_area.prepend(new_image);
     });
     
@@ -106,7 +106,7 @@
           preview.append(image);
         });
         dropzone.css({
-          'width': `calc(100% - (100px * ${images.length}))`
+          'width': 'calc(100% - (100px * ${images.length}))'
         });
       }
     });
