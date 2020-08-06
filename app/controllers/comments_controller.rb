@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user
   before_action :ensure_correct_user, { only: [:edit, :update, :destroy] }
-  
+
   def create
     post = Post.find(params[:post_id])
     @comment = post.comments.build(comment_params)
@@ -11,7 +11,8 @@ class CommentsController < ApplicationController
   end
 
   private
-    def comment_params
-      params.require(:comment).permit(:body)
-    end
+
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
 end

@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user, { only: [:new, :create, :edit, :update, :destroy] }
-  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
-  
+  before_action :ensure_correct_user, { only: [:edit, :update, :destroy] }
+
   def index
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(8)
   end
-  
+
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
@@ -15,15 +15,15 @@ class PostsController < ApplicationController
     @comments = Comment.where(post_id: @post.id)
     @comment = @post.comments.build
   end
-  
+
   def new
     @post = Post.new
     @post.photos.build
   end
-  
+
   def create
     @post = Post.new(post_params)
-    
+
     if @post.save
       params[:photos][:image].each do |image|
         @post.photos.create(post_image: image, post_id: @post.id)
@@ -35,11 +35,11 @@ class PostsController < ApplicationController
       render("posts/new")
     end
   end
-  
+
   def edit
     @post = Post.find_by(id: params[:id])
   end
-  
+
   def update
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
       render("posts/edit")
     end
   end
-  
+
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
@@ -65,9 +65,8 @@ class PostsController < ApplicationController
       redirect_to("/posts/index")
     end
   end
-  
+
   def post_params
     params.require(:post).permit(:content, photos_attributes: [:post_image]).merge(user_id: @current_user.id)
   end
-  
 end
