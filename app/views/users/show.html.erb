@@ -5,7 +5,7 @@
       <% if @user.image_name? %>
         <img src='<%= @user.image_name %>'>
       <% else %>
-        <image src="/assets/default_user.jpg"  %>
+        <%= image_tag "default_user.jpg"  %>
       <% end %>
       <h2><%= @user.name %></h2>
       <% if @current_user %>

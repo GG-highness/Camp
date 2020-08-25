@@ -3,7 +3,7 @@
   <div class="comment-left">
     <% if comment.user.image_name.file.nil? %>
       <%= link_to("/users/#{comment.user.id}") do %>
-        <image src="/assets/default_user.jpg"  %>
+        <%= image_tag "default_user.jpg"  %>
       <% end %>
     <% else %>
       <%= link_to("/users/#{comment.user.id}") do %>
@@ -25,7 +25,7 @@
   <div class="comment">
     <div class="comment-left">
       <% if comment.user.image_name.file.nil? %>
-          <image src="/assets/default_user.jpg"  %>
+          <%= image_tag "default_user.jpg"  %>
       <% else %>
           <img src='<%= comment.user.image_name %>'>
       <% end %>
