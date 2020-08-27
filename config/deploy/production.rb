@@ -1,4 +1,4 @@
-server '13.114.161.69', 
+server '18.181.142.200', 
   user: 'ec2-user', 
   roles: %w{app db web},
   ssh_options: {
