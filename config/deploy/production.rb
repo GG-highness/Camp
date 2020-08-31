@@ -1,8 +1,8 @@
 server '18.181.47.69', 
-  user: 'ec2-user', 
+  user: 'Dice', 
   roles: %w{app db web},
   ssh_options: {
-    keys: ['~/.ssh/Camp.pem'], 
+    keys: ["#{ENV('PRODUCTION_SSH_KEY')}"],  
     forward_agent: true,
     auth_methods: %w(publickey),
     port: 22
