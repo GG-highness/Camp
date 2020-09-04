@@ -21,6 +21,7 @@ services:
       - 4306:3306
     environment:
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
   web:
     build:
       context: containers/nginx
