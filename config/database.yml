@@ -13,12 +13,11 @@ development:
 test:
   <<: *default
   database: Camp_test
-  host: 127.0.0.1
 
 production:
   <<: *default
-  database: <%= ENV['DB_NAME'] %>
-  username: <%= ENV['DB_USERNAME'] %>
+  database: Camp_production
+  username: root
   password: <%= ENV['DB_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
-  host: <%= ENV['DB_HOSTNAME'] %>
+  host: localhost
