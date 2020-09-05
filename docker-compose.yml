@@ -18,10 +18,9 @@ services:
     volumes:
       - db-volume:/var/lib/mysql
     ports:
-      - 4306:3306
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: root
   web:
     build:
       context: containers/nginx
