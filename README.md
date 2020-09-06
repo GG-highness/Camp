@@ -22,7 +22,7 @@ https://www.camp-2020.work/
 ### 画像関連  
 ・carrierwave
 ### DB  
-・MySQL(5.6)
+・MySQL(5.7)
 ### インフラ・開発環境等  
 ・Docker/docker-compose  
 ・CircleCI (CI/CD)  
