@@ -13,6 +13,7 @@ development:
 test:
   <<: *default
   database: Camp_test
+　host: 127.0.0.1
 
 production:
   <<: *default
