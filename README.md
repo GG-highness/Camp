@@ -29,4 +29,4 @@ https://www.camp-2020.work/
 ・Rubocop  
 ・RSpec  
 ・Capistrano  
-・AWS(VPC, RDS, EC2, ELB, Route53, ACM)
+・AWS(VPC, EC2, ELB, Route53, ACM)
